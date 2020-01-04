@@ -1,11 +1,47 @@
 /**app.wxss**/
+@import './towxml/style/main.wxss';
+@import './towxml/style/theme/light.wxss';
 
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+/* reset code block  */
+.h2w {
+  font-size: 30rpx;
+  line-height: 1.7;
+  padding-bottom: 20rpx;
+}
+
+.h2w__pre {
+  margin-top: 30rpx;
+}
+
+.h2w__hr {
+  margin: 30rpx 0;
+}
+
+.h2w__table {
+  border: 2rpx solid #eee;
+  border-radius: 8rpx;
+  table-layout: fixed;
+}
+
+.h2w__th,
+.h2w__td {
+  word-break: normal;
+}
+
+.h2w__th {
+  text-align: center;
+}
+
+.h2w image {
+  display: block;
+  margin: 0 auto 20rpx;
+}
+
+.h2w-light .h2w__pre {
+  border-color: #E7EAED;
+  border-radius: 6rpx;
+}
+
+.h2w-light .h2w__code {
+  border: none;
+}
