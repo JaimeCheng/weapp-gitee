@@ -30,21 +30,27 @@ class outwxml {
             wxmlTag = tagsAndAttrs.wxml;
 
         wxmlTag.forEach((item, index) => {
+            
             let imgMode = '',
                 attr = _ts.outattr(item);
             if (item === 'image') {
                 imgMode = `mode="{{item.type === 'audio' ? '' : 'widthFix'}}"`;
+                attr += `data-idx="{{item.idx}}" style="width:{{images[item.idx].width}}rpx;{{item.attr.style}}" bindload="img_load" bindtap="img_tap" show-menu-by-longpress lazy-laod`
             };
+
+            if (item === 'navigator') {
+                attr += `bindtap="link_tap"`
+            }
 
             // todo添加绑定事件
             if (item === 'checkbox-group') {
                 attr += `bindchange="{{item.attr['bindchange']}}"`;
             };
             if (item === 'checkbox') {
-                attr += `value="{{item.attr['value']}}"`;
+                attr += `value="{{item.attr['value']}}" disabled`;
             };
 
-            s += `<${item} wx:if="{{item.node === 'element' && item.tag === '${item}'}}" ${attr} ${imgMode}><block wx:for="{{item.child}}" wx:key="item"><template is="m${id}" data="{{item}}"/></block></${item}>`;
+            s += `<${item} wx:if="{{item.node === 'element' && item.tag === '${item}'}}" ${attr} ${imgMode}><block wx:for="{{item.child}}" wx:key="item"><template is="m${id}" data="{{item, images}}"/></block></${item}>`;
         });
 
         return s;

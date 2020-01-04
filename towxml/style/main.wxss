@@ -323,9 +323,9 @@
     /*text-align:justify;*/
 }
 
-.h2w__div {
-    /*text-align:justify;*/
-}
+/* .h2w__div {
+    text-align:justify;
+} */
 
 .h2w__blockquote {
     border-left-width: 8rpx;
@@ -413,7 +413,9 @@ video {
 }
 
 image {
+    width: 0;
     height: auto;
+    text-align: center;
 }
 
 video {

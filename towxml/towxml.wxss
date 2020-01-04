@@ -1,4 +1,1 @@
 /* towxml/towxml.wxss */
-@import './style/main.wxss';
-@import './style/theme/light.wxss';
-@import './style/theme/dark.wxss';

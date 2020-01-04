@@ -35,11 +35,11 @@ let wxml = [
 ],
 binds = [
     // 建议保留的事件
-    'bind:touchstart',
-    'bind:touchmove',
-    'bind:touchcancel',
-    'bind:touchend',
-    'bind:tap',
+    // 'bind:touchstart',
+    // 'bind:touchmove',
+    // 'bind:touchcancel',
+    // 'bind:touchend',
+    // 'bind:tap',
     // 'bind:longpress',
     // 'bind:longtap',
     // 'bind:transitionend',
