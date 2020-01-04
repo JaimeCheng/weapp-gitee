@@ -33,7 +33,7 @@
 }
 
 .h2w image {
-  display: block;
+  display: inline-block;
   margin: 0 auto 20rpx;
 }
 
