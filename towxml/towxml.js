@@ -41,7 +41,8 @@ Component({
   data: {
     formatData: null,
     images: [],
-    imageUrls: []
+    imageUrls: [],
+    errors: []
   },
 
   lifetimes: {
@@ -60,12 +61,11 @@ Component({
           this.data.md,
           'markdown' 
         );
-        
-        this.eachimg(data.child)
         data = towxml.initData(data, {
           base: this.data.host,
           app: this.data.currThis
         });
+        this.eachimg(data.child)
         // data.theme = "dark"
         this.setData({
           formatData: data
@@ -94,11 +94,12 @@ Component({
       var recal = this.wxAutoImageCal(e.detail.width, e.detail.height);
       this.setData({
         ['images[' + e.target.dataset.idx + ']']: { width: recal.imageWidth, height: recal.imageHeight },
-        ['imageUrls[' + e.target.dataset.idx + ']']: e.currentTarget.dataset._el.attr.src
+        ['imageUrls[' + e.target.dataset.idx + ']']: e.currentTarget.dataset._el._e.attr.src,
+        ['errors[' + e.target.dataset.idx + ']']: false,
       })
     },
     img_tap (e) {
-      var nowImgUrl = e.target.dataset._el.attr.src;
+      var nowImgUrl = e.target.dataset._el._e.attr.src;
       var imageUrls = this.data.imageUrls,
         newImageUrls = [];
       for (var i in imageUrls) {
@@ -113,12 +114,21 @@ Component({
         })
       }
     },
+    img_error (e) {
+      const index = e.target.dataset.idx
+      this.setData({
+        ['errors[' + index + ']']: true
+      })
+    },
 
     // 遍历图片 添加索引
     eachimg (arr) {
       arr.forEach(el => {
         if (el.tag === 'image') {
           el.idx = idx
+          const str = el.attr.src.replace(/^[((https|http)?:\/\/)|:\/\/].*gitee.com[^\s]?/,`https://images.weserv.nl/?url=$&`)
+          el.attr.src = str
+          el._e.attr.src = str
           idx++
         }
         if (el.child) {

@@ -34,8 +34,9 @@ class outwxml {
             let imgMode = '',
                 attr = _ts.outattr(item);
             if (item === 'image') {
+                // 图片error手动添加到模板文件
                 imgMode = `mode="{{item.type === 'audio' ? '' : 'widthFix'}}"`;
-                attr += `data-idx="{{item.idx}}" style="width:{{images[item.idx].width}}rpx;{{item.attr.style}}" bindload="img_load" bindtap="img_tap" show-menu-by-longpress lazy-laod`
+                attr += `data-idx="{{item.idx}}" style="width:{{images[item.idx].width}}rpx;{{item.attr.style}}" bindload="img_load" bindtap="img_tap" binderror="img_error" show-menu-by-longpress lazy-laod`
             };
 
             if (item === 'navigator') {
@@ -50,7 +51,7 @@ class outwxml {
                 attr += `value="{{item.attr['value']}}" disabled`;
             };
 
-            s += `<${item} wx:if="{{item.node === 'element' && item.tag === '${item}'}}" ${attr} ${imgMode}><block wx:for="{{item.child}}" wx:key="item"><template is="m${id}" data="{{item, images}}"/></block></${item}>`;
+            s += `<${item} wx:if="{{item.node === 'element' && item.tag === '${item}'}}" ${attr} ${imgMode}><block wx:for="{{item.child}}" wx:key="item"><template is="m${id}" data="{{item, images, errors}}"/></block></${item}>`;
         });
 
         return s;

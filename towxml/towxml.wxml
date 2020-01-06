@@ -3,7 +3,7 @@
   <view class="h2w__main">
     <import src="./renderTemplate.wxml"/>
     <block wx:for="{{formatData.child}}" wx:key="index">
-      <template is="m0" data="{{item, images}}"/>
+      <template is="m0" data="{{item, images, errors}}"/>
     </block>
   </view>
 </view>
