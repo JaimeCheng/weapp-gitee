@@ -11,7 +11,7 @@
     opacity: 1;
 }
 
-.audioForH2w--play .audioForH2w__cover image {
+.audioForH2w--play .audioForH2w__cover .h2w__img {
     opacity: 1;
 }
 
@@ -23,7 +23,7 @@
     float: left;
 }
 
-.audioForH2w__cover image {
+.audioForH2w__cover .h2w__img {
     width: 100%;
     height: 100%;
     opacity: 0.6;
@@ -406,18 +406,16 @@
 }
 
 /**内置元素**/
-image,
-video {
+/* video {
     width: 100%;
     margin: 10rpx auto;
-}
+} */
 
-image {
-    width: 0;
+/* image {
     height: auto;
     text-align: center;
-}
+} */
 
-video {
+/* video {
     height: 220px;
-}
+} */
