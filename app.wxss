@@ -36,6 +36,9 @@
   display: inline-block;
   margin: 0 auto 20rpx;
 }
+.h2w .error_img {
+  width: 70%;
+}
 
 .h2w-light .h2w__pre {
   border-color: #E7EAED;
