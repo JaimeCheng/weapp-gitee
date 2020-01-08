@@ -51,9 +51,14 @@
   border: none;
 }
 
+.h2w-light .h2w__a {
+  color: #ff7676;
+  border-color: #ffe4e4; 
+}  
+
 .loading {
   width: 45rpx;
   height: 45rpx;
   display: block;
-  margin: calc(50vh - 22rpx) auto;
+  margin: calc(50vh - 60rpx) auto;
 }
