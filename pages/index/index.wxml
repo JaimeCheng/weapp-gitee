@@ -1,2 +1,0 @@
-<!--index.wxml-->
-<towxml curr-this="{{ currThis }}" md="{{ readme }}"></towxml> 
