@@ -1,4 +1,1 @@
-<!--index.wxml-->
-<!-- <image class="loading" hidden="{{ !loading }}" src="../../assets/loading.gif"></image> -->
 <towxml host="{{host}}" curr-this="{{ currThis }}" md="{{ readme }}"></towxml> 
-<navigator url="../index/index">index</navigator>

@@ -39,7 +39,8 @@ Component({
     formatData: null,
     images: [],
     imageUrls: [],
-    errors: []
+    errors: [],
+    loading: true
   },
 
   lifetimes: {
@@ -65,7 +66,8 @@ Component({
         this.eachimg(data.child)
         // data.theme = "dark"
         this.setData({
-          formatData: data
+          formatData: data,
+          loading: false
         });
       } 
     },
