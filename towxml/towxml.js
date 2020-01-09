@@ -29,6 +29,15 @@ Component({
     currThis: {
       type: Object,
       value: {}
+    },
+    loading: {
+      type: Boolean,
+      value: true,
+      observer(a, b){
+        this.setData({
+          loading: a
+        })
+      }
     }
   },
 
@@ -67,7 +76,7 @@ Component({
         // data.theme = "dark"
         this.setData({
           formatData: data,
-          loading: false
+          loading:false
         });
       } 
     },
