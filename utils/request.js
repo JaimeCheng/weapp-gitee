@@ -1,6 +1,5 @@
-// import store from '../store/store.js'
+import store from '../store/store.js'
 
-const sys = wx.getSystemInfoSync()
 const baseURL = 'https://gitee.com/api'
 
 const urlRegex = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/|www\.)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~+(:)\/._])+$/
@@ -13,10 +12,12 @@ var configPOST = {
 }
 
 const request = (options) => {
-  // const token = wx.getStorageSync('token')
+  const token = wx.getStorageSync('token')
   // config['Authorization'] = token
   // configPOST['Authorization'] = token
-  options.data.access_token = '9167f828112c75a448b82e16e595fbba'
+  if (options.data) {
+    options.data.access_token = token.access_token
+  }
   return new Promise((resolve, reject) => {
     wx.request({
       url: urlRegex.test(options.url) ? `${options.url}` : `${baseURL}${options.url}`,
@@ -24,17 +25,26 @@ const request = (options) => {
       data: options.data,
       header: options.method === 'POST' ? configPOST : config,
       success(res) {
-        console.log('request：success - ' + res.statusCode)
-        if (res.statusCode !== 200) {
-          reject(res.data)
-          wx.showToast({
-            title: res.data.message,
-            icon: 'none',
-            duration: 2000
-          })
-        } else {
-          console.log('数据获取成功')
+        // console.log(res)
+        if (res.statusCode === 200) {
           resolve(res.data)
+        } else {
+          console.log(res.data)
+          reject(res.data)
+          // wx.showToast({
+          //   title: res.data.error_description || res.data.message,
+          //   icon: 'none',
+          //   duration: 2000
+          // })
+          if (res.statusCode === 401) {
+            wx.removeStorageSync('token')
+            store.data.token = null
+            store.update()
+            wx.showToast({
+              title: '登录凭证无效',
+              icon: 'none'
+            })
+          }
         }
       },
       fail(error) {
