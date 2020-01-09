@@ -1,1 +1,81 @@
 /* pages/login/login.wxss */
+.login-bg {
+  border-width: 0 0 60rpx 60rpx;
+  border-radius: 0 0 100% 100%;
+  padding: 30rpx 0;
+  margin-bottom: 40rpx;
+  overflow: hidden;
+}
+.login-slogan {
+  color: white;
+  text-align: center;
+  font-size: 36rpx;
+}
+.login-logo {
+  display: block;
+  width: 130rpx;
+  height: 130rpx;
+  margin: 50rpx auto;
+}
+.login-box {
+  padding: 40rpx 30rpx;
+}
+.login-input {
+  margin-bottom: 50rpx;
+}
+.login-input label {
+  font-size: 30rpx;
+}
+.login-input input {
+  display: block;
+  color: #555;
+  margin: 20rpx 0;
+  padding: 15rpx 0;
+  border-bottom: 2rpx solid #F7F7F7;
+}
+.login-box .login-btn {
+  width: 100%;
+  font-size: 32rpx;
+  font-weight: normal;
+  margin-top: 80rpx;
+  margin-bottom: 20rpx;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+.login-box navigator {
+  /* font-size: 28rpx; */
+  width: fit-content;
+  color: #d96459;
+  border-bottom: 1rpx solid #ffe4e4;
+  padding-top: 20rpx;
+  padding-bottom: 4rpx;
+}
+
+.login-or {
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  position: relative;
+  margin: 80rpx auto;
+}
+.login-or::after {
+  content: '';
+  display: block;
+  width: 220rpx;
+  height: 3rpx;
+  background: radial-gradient(#d96459 25%, white 100%);
+  position: absolute;
+  top: 38.5rpx;
+  left: -70rpx;
+  z-index: -1;
+}
+.login-other {
+  width: fit-content;
+  margin: auto;
+  padding: 0 6rpx 4rpx;
+  border-bottom: 1rpx solid #daebe0;
+}
