@@ -1,0 +1,64 @@
+/* towxml/towxml.wxss */
+@import './style/main.wxss';
+@import './style/theme/light.wxss';
+
+/* reset code block  */
+.h2w {
+  font-size: 30rpx;
+  line-height: 1.7;
+  padding-bottom: 20rpx;
+}
+
+.h2w__pre {
+  margin-top: 30rpx;
+}
+
+.h2w__hr {
+  margin: 30rpx 0;
+}
+
+.h2w__table {
+  border: 2rpx solid #eee;
+  border-radius: 8rpx;
+  table-layout: fixed;
+}
+
+.h2w__th,
+.h2w__td {
+  word-break: normal;
+}
+
+.h2w__th {
+  text-align: center;
+}
+
+.h2w .h2w__img {
+  width: 0;
+  height: auto;
+  display: inline-block;
+  margin: 0 auto 20rpx;
+}
+.h2w .error_img {
+  width: 70%;
+}
+
+.h2w-light .h2w__pre {
+  border-color: #E7EAED;
+  border-radius: 6rpx;
+}
+
+.h2w-light .h2w__code {
+  border: none;
+}
+
+.h2w-light .h2w__a {
+  color: #d96459;
+  border-color: #ffe4e4; 
+}  
+
+.loading {
+  width: 45rpx;
+  height: 45rpx;
+  display: block;
+  margin: calc(50vh - 60rpx) auto;
+}
