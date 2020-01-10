@@ -1,1 +1,0 @@
-<towxml host="{{host}}" curr-this="{{ currThis }}" md="{{ readme }}"></towxml> 
