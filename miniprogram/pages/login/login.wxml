@@ -1,0 +1,33 @@
+<!--pages/login/login.wxml-->
+<view class="login-bg logo-bg-color">
+  <!-- <view class="login-slogan bold">Gitee+ 码云小程序</view> -->
+  <image class="login-logo" src="../../assets/logo.png"></image>
+</view>
+
+<view class="login-box">
+  <form bindsubmit="handleLogin">
+    <block wx:if="{{ currWay === 1 }}">
+      <view class="login-input">
+        <label class="logo-color bold">Email</label>
+        <input name="username" placeholder-class="place-holder" placeholder="请输入邮箱"></input>
+      </view>
+      <view class="login-input">
+        <label class="logo-color bold">Password</label>
+        <input name="password" placeholder-class="place-holder" placeholder="请输入密码" type="password"></input>
+      </view>
+      <button class="mybtn-primary login-btn" hover-class="mybtn-hover" disabled="{{ loading }}" loading="{{ loading }}" formType="submit">登录</button>
+      <text class="sub-text">邮箱密码仅用于码云API权限验证，不会被上传存档，请放心使用；当然，我们更建议您使用Token进行登录。</text>
+    </block>
+    <block wx:if="{{ currWay === 0 }}">
+      <view class="login-input">
+        <label class="logo-color bold">PrivateToken</label>
+        <input name="password" placeholder-class="place-holder" placeholder="请输入私人令牌" type="password"></input>
+      </view>
+      <button class="mybtn-primary login-btn" hover-class="mybtn-hover" disabled="{{ loading }}" loading="{{ loading }}" formType="submit">登录</button>
+      <navigator url="../../staticPack/about/token">如何获取私人令牌(Token)？</navigator>
+    </block>
+  </form>
+
+  <view class="login-or tabbar-bg-color">OR</view>
+  <view class="login-other logo-color" hover-class="mybtn-hover" bindtap="switchWay">{{ way[currWay] }}</view>
+</view>

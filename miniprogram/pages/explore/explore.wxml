@@ -1,0 +1,20 @@
+<!--pages/explore/explore.wxml-->
+<van-tabs active="{{ active }}" sticky>
+  <van-tab title="最新推荐"></van-tab>
+  <van-tab title="今日热门"></van-tab>
+  <van-tab title="本周热门"></van-tab>
+</van-tabs>
+
+<image class="loading" hidden="{{ !loading }}" src="../../assets/loading.gif"></image>
+<!-- <view class="mybtn-primary fixed-btn">选择语言: Objective-C</view> -->
+
+<picker bindchange="bindPickerChange" value="{{index}}" range="{{langArr}}" range-key="val">
+  <view class="picker">
+    <view wx:if="{{langArr.length > 0}}" class="mybtn-primary fixed-btn">选择语言: {{langArr[index].val}}</view>
+  </view>
+</picker>
+
+<!-- <view class="empty center">
+  <image src="../../assets/logo_o.png" mode="widthFix"></image>
+  <text>- 暂无更多内容 -</text>
+</view> -->

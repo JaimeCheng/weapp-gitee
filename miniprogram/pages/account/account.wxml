@@ -1,0 +1,4 @@
+<!--pages/account/account.wxml-->
+<text>pages/account/account.wxml</text>
+
+<navigator url="../demo/demo">dddddd</navigator>

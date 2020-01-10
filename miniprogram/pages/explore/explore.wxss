@@ -1,0 +1,18 @@
+.van-tabs__line {
+  background-color: #d96459 !important;
+}
+.loading {
+  margin: calc(50vh - 80rpx) auto;
+}
+.mybtn-primary.fixed-btn {
+  width: fit-content;
+  margin: auto;
+  font-size: 28rpx;
+  padding: 15rpx 30rpx;
+  border-radius: 50rpx;
+  position: fixed;
+  left: 0;
+  right: 0; 
+  bottom: 40rpx;
+  background: rgba(105,132,116, .8);
+}
