@@ -3,19 +3,7 @@ const fetch = require('node-fetch')
 const { omitBy, isNil } = require('lodash')
 
 const GITEE_URL = 'https://gitee.com/explore/all';
-
-function getMatchString(value, pattern) {
-  const match = value.match(pattern);
-  if (match && match[1]) {
-    return match[1];
-  } else {
-    return null;
-  }
-}
-
-function filterLanguages(languages) {
-  return languages.filter(lang => lang.urlParam && lang.urlParam !== 'unknown');
-}
+const GITEE_HOST = 'https://gitee.com'
 
 function omitNil(object) {
   return omitBy(object, isNil);
@@ -32,36 +20,41 @@ function removeDefaultAvatarSize(src) {
 async function fetchAllLanguages() {
   const data = await fetch(GITEE_URL);
   const $ = cheerio.load(await data.text());
-  const getLang = href => getMatchString(href, /\/trending\/([^?/]+)/i);
-  const langs = $('.explore-languagues__container .menu').get().map(a => {
-    const $a = $(a);
+  const langs = $('.explore-languagues__container .menu a').get().map(a => {
+    const queryArr = $(a).attr('href').split('=');
     return {
-      urlParam: getLang($a.attr('href')),
-      name: $a.text(),
+      query: queryArr.length === 2 ? queryArr[1] : '',
+      val: $(a).find('span:first-child').text()
     };
   })
-  const popularLanguages = $('.col-md-3 .filter-item')
-    .get()
-    .map(a => {
-      const $a = $(a);
-      return {
-        urlParam: getLang($a.attr('href')),
-        name: $a.text(),
-      };
-    });
-  const allLanguages = $('.col-md-3 .select-menu-item')
-    .get()
-    .map(a => {
-      const $a = $(a);
-      return {
-        urlParam: getLang($a.attr('href')),
-        name: $a.children('[data-menu-button-text]').text(),
-      };
-    });
-  return {
-    popular: filterLanguages(popularLanguages),
-    all: filterLanguages(allLanguages),
-  };
+  return langs;
+}
+
+async function fetchHotTrending() {
+  const data = await fetch(GITEE_URL);
+  const $ = cheerio.load(await data.text());
+  const hot = {
+    daily: [],
+    weekily: []
+  }
+  $('.explore-trending-projects__container .tab').each((i, el) => {
+    $(el).find('.explore-trending-projects__list-item').each((ix, item) => {
+        const title = $(item).find('.title a');
+        const desp = $(item).find('.description');
+        const obj = {
+          repo_title: title.text(),
+          repo_path: title.attr('href'),
+          repo_url: GITEE_HOST + title.attr('href'),
+          repo_desc: desp.text()
+        };
+        if ($(el).attr('data-tab') === 'daily-trending') {
+          hot.daily.push(obj)
+        } else {
+          hot.weekily.push(obj)
+        }
+      })
+  })
+  return hot;
 }
 
 async function fetchRepositories({
@@ -215,5 +208,5 @@ async function fetchDevelopers({ language = '', since = 'daily' } = {}) {
 }
 
 exports.fetchAllLanguages = fetchAllLanguages
-exports.fetchRepositories = fetchRepositories
+exports.fetchHotTrending = fetchHotTrending
 exports.fetchDevelopers = fetchDevelopers
