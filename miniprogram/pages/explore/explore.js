@@ -9,6 +9,7 @@ Page({
     active: 1,
     index: 0,
     lang: '',
+    page: 1,
     langArr: [],
     loading: true
   },
@@ -18,26 +19,7 @@ Page({
    */
   onLoad: function (options) {
     this.getTrending()
-    wx.cloud.callFunction({
-      name: 'trending',
-      data: {
-        a: 1,
-        b: 2
-      },
-      success: res => {
-        wx.showToast({
-          title: '调用成功',
-        })
-        console.log(res)
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '调用失败',
-        })
-        console.error('[云函数] [sum] 调用失败：', err)
-      }
-    })
+    
   },
 
   /**
@@ -48,26 +30,38 @@ Page({
   },
 
   getTrending: function () {
-    REPO.trending({ lang: this.data.lang }).then(res => {
-      console.log('热门项目获取成功')
+    wx.cloud.callFunction({
+      name: 'trending',
+      data: {
+        lang: this.data.lang,
+        page: this.data.page
+      }
+    }).then(res => {
+      console.log('云函数[trending]调用成功')
       this.setData({
-        langArr: res.language,
-        explore: res.explore,
-        hot: res.hot,
+        langArr: res.result.langs,
+        repos: res.result.repos,
+        hot: res.result.hot,
         loading: false
       })
     }).catch(err => {
       this.setData({
         loading: false
       })
+      wx.showToast({
+        icon: 'none',
+        title: '云函数调用失败',
+      })
+      console.error('云函数[trending]调用失败：', err)
     })
   },
   bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value,
-      lang: this.data.langArr[e.detail.value].query
+      lang: this.data.langArr[e.detail.value].query,
+      page: 1
     })
+    this.getTrending()
   },
 
   /**
