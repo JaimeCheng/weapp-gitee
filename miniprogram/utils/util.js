@@ -27,7 +27,7 @@ const redirectOld = () => {
     })
   } else {
     wx.redirectTo({
-      url: '../index/index',
+      url: '../explore/explore',
     })
   }
 }
