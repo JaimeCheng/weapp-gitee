@@ -4,6 +4,7 @@
   "backgroundTextStyle": "dark",
   "usingComponents": {
     "van-tab": "../../vant/tab/index",
-    "van-tabs": "../../vant/tabs/index"
+    "van-tabs": "../../vant/tabs/index",
+    "van-skeleton": "../../vant/skeleton/index"
   }
 }

@@ -1,12 +1,16 @@
 <!--pages/explore/explore.wxml-->
 <van-tabs active="{{ active }}" sticky>
-  <van-tab title="最新推荐"></van-tab>
+  <van-tab title="最新推荐">
+    <van-skeleton title row="2" loading="{{ loading }}">
+      <view>实际内容</view>
+    </van-skeleton>
+    <van-skeleton wx:for="{{ [1, 2, 3, 4, 5] }}" wx:key="*this" title row="2" loading="{{ loading }}" />
+  </van-tab>
   <van-tab title="今日热门"></van-tab>
   <van-tab title="本周热门"></van-tab>
 </van-tabs>
 
-<image class="loading" hidden="{{ !loading }}" src="../../assets/loading.gif"></image>
-<!-- <view class="mybtn-primary fixed-btn">选择语言: Objective-C</view> -->
+<!-- <image class="loading" hidden="{{ !loading }}" src="../../assets/loading.gif"></image> -->
 
 <picker bindchange="bindPickerChange" value="{{index}}" range="{{langArr}}" range-key="val">
   <view class="picker">

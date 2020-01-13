@@ -1,6 +1,9 @@
 .van-tabs__line {
   background-color: #d96459 !important;
 }
+.van-skeleton {
+  margin-top: 40rpx;
+}
 .loading {
   margin: calc(50vh - 80rpx) auto;
 }
