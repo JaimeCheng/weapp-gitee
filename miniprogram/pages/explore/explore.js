@@ -1,12 +1,11 @@
 // pages/explore/explore.js
-const REPO = require('../../api/repo.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    active: 1,
+    active: 0,
     index: 0,
     lang: '',
     page: 1,
@@ -19,7 +18,6 @@ Page({
    */
   onLoad: function (options) {
     this.getTrending()
-    
   },
 
   /**
@@ -41,9 +39,16 @@ Page({
       this.setData({
         langArr: res.result.langs,
         repos: res.result.repos,
-        hot: res.result.hot,
+        trending: res.result.trending,
         loading: false
       })
+      const langIndex = wx.getStorageSync('lang')
+      if (langIndex) {
+        this.setData({
+          index: langIndex,
+          lang: this.data.langArr[langIndex].query
+        })
+      }
     }).catch(err => {
       this.setData({
         loading: false
@@ -61,6 +66,7 @@ Page({
       lang: this.data.langArr[e.detail.value].query,
       page: 1
     })
+    wx.setStorageSync('lang', e.detail.value)
     this.getTrending()
   },
 
@@ -68,14 +74,17 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getTrending()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.setData({
+      page: this.data.page + 1
+    })
+    this.getTrending()
   },
 
   /**
