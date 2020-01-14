@@ -52,11 +52,14 @@ async function fetchData({ lang = '', page = 1 } = {}) {
       fork: Number($(item).find('.icon-fork').next().text())
     };
   })
+  
+  const pages = Number($('#git-discover-page').find('.item:nth-last-child(2)').text())
 
   return {
     langs,
+    repos,
     trending,
-    repos
+    pages
   }
 }
 
