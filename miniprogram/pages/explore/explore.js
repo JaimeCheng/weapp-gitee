@@ -9,6 +9,7 @@ Page({
     index: 0,
     lang: '',
     page: 1,
+    total_pages: 100,
     langArr: [],
     loading: true
   },
@@ -40,6 +41,7 @@ Page({
         langArr: res.result.langs,
         repos: res.result.repos,
         trending: res.result.trending,
+        total_pages: res.result.pages,
         loading: false
       })
       const langIndex = wx.getStorageSync('lang')
@@ -74,6 +76,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    this.setData({
+      page: 1
+    })
     this.getTrending()
   },
 
@@ -81,10 +86,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.setData({
-      page: this.data.page + 1
-    })
-    this.getTrending()
+    // 参考 sanshozo
   },
 
   /**
