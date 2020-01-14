@@ -66,7 +66,8 @@ Page({
     this.setData({
       index: e.detail.value,
       lang: this.data.langArr[e.detail.value].query,
-      page: 1
+      page: 1,
+      loading: true
     })
     wx.setStorageSync('lang', e.detail.value)
     this.getTrending()
