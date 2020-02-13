@@ -10,6 +10,9 @@ page, input, .place-holder {
 .center {
   text-align: center;
 }
+.wrap {
+  padding: 0 30rpx;
+}
 .sub-text {
   font-size: 26rpx;
   color: #7A7E83;
@@ -63,4 +66,8 @@ page, input, .place-holder {
 .empty text {
   font-size: 28rpx;
   color: #7A7E83;
+}
+
+.van-skeleton {
+  margin-top: 40rpx;
 }
