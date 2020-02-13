@@ -15,7 +15,7 @@ const request = (options) => {
   const token = wx.getStorageSync('token')
   // config['Authorization'] = token
   // configPOST['Authorization'] = token
-  if (options.data) {
+  if (options.data && token) {
     options.data.access_token = token.access_token
   }
   return new Promise((resolve, reject) => {
