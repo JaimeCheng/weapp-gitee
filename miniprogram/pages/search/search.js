@@ -15,9 +15,15 @@ Page({
    */
   onLoad: function (options) {
     const historyArr = wx.getStorageSync('searchArr')
+    const hotSearch = wx.getStorageSync('hotsearch')
     if (historyArr) {
       this.setData({
         history: historyArr.split('$&')
+      })
+    }
+    if (hotSearch) {
+      this.setData({
+        hot: hotSearch.split(',')
       })
     }
     this.getHot()
@@ -45,6 +51,7 @@ Page({
       this.setData({
         hot: res.result
       })
+      wx.setStorageSync('hotsearch', res.result.join(','))
     }).catch(err => {
       wx.showToast({
         icon: 'none',
