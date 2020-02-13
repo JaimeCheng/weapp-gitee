@@ -1,0 +1,15 @@
+<!--miniprogram/pages/search/result.wxml-->
+<van-tabs active="{{ active }}" sticky bind:click="tabChange">
+  <van-tab title="相关仓库">
+    <van-skeleton title row="2" loading="{{ loading }}">
+      <view>相关仓库</view>
+    </van-skeleton>
+    <van-skeleton wx:for="{{ [1, 2, 3, 4, 5] }}" wx:key="*this" title row="2" loading="{{ loading }}" />
+  </van-tab>
+  <van-tab title="相关用户">
+    <van-skeleton title row="2" loading="{{ loading }}">
+      <view>相关用户</view>
+    </van-skeleton>
+    <van-skeleton wx:for="{{ [1, 2, 3, 4, 5] }}" wx:key="*this" title row="2" loading="{{ loading }}" />
+  </van-tab>
+</van-tabs>

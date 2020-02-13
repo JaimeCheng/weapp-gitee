@@ -1,2 +1,22 @@
 <!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<van-search placeholder="搜索仓库/用户" value="{{ keywords }}" bind:search="onSearch" background="#698474" shape="round" placeholder-style="font-weight: 300;font-size: 14px;"/>
+
+<view class="history wrap">
+  <view wx:if="{{ history.length > 0 }}" class="history-title">
+    <text>历史搜索</text>
+    <van-icon name="delete" color="#7A7E83" bindtap="clearAll" />
+  </view>
+  <view class="history-items">
+    <text wx:for="{{ history }}" wx:key="*this" data-text="{{ item }}" bindtap="toSearch">{{ item }}</text>
+  </view>
+</view>
+
+<view class="history wrap">
+  <view wx:if="{{ hot.length > 0 }}" class="history-title">
+    <text>热门搜索</text>
+    <text></text>
+  </view>
+  <view class="history-items hot-items">
+    <text wx:for="{{ hot }}" wx:key="*this" data-text="{{ item }}" bindtap="toSearch">{{ item }}</text>
+  </view>
+</view>
