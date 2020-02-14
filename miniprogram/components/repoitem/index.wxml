@@ -1,0 +1,24 @@
+<!--components/repoitem/index.wxml-->
+<view class="repo-item">
+  <navigator url="../../pages/repo/home" hover-class="none">
+    <view class="repo-title">
+      <image src="../../assets/icon/repo.png" mode="widthFix"></image>
+      <text>{{ repoData.repo_title}}</text>
+    </view>
+    <view class="repo-desc">{{ repoData.repo_desc }}</view>
+    <view class="repo-social">
+      <view class="repo-icon">
+        <image src="../../assets/icon/watch.png" mode="widthFix"></image>
+        {{ repoData.watch }}
+      </view>
+      <view class="repo-icon">
+        <image src="../../assets/icon/star.png" mode="widthFix"></image>
+        {{ repoData.star }}
+      </view>
+      <view class="repo-icon">
+        <image src="../../assets/icon/fork.png" mode="widthFix"></image>
+        {{ repoData.fork }}
+      </view>
+    </view>
+  </navigator>
+</view>
