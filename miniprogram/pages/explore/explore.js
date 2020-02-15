@@ -11,7 +11,9 @@ Page({
     page: 1,
     total_pages: 100,
     langArr: [],
-    loading: true
+    repos: null,
+    loading: true,
+    btmloading: false
   },
 
   /**
@@ -37,20 +39,20 @@ Page({
       }
     }).then(res => {
       console.log('云函数[trending]调用成功')
-      this.setData({
-        langArr: res.result.langs,
-        repos: res.result.repos,
-        trending: res.result.trending,
-        total_pages: res.result.pages,
-        loading: false
-      })
-      const langIndex = wx.getStorageSync('lang')
-      if (langIndex) {
+      if (!this.data.repos) {
         this.setData({
-          index: langIndex,
-          lang: this.data.langArr[langIndex].query
+          repos: []
         })
       }
+      const repos = this.data.repos.concat(res.result.repos)
+      this.setData({
+        langArr: res.result.langs,
+        trending: res.result.trending,
+        total_pages: res.result.pages,
+        repos: repos,
+        loading: false,
+        btmloading: false
+      })
     }).catch(err => {
       this.setData({
         loading: false
@@ -67,10 +69,14 @@ Page({
       index: e.detail.value,
       lang: this.data.langArr[e.detail.value].query,
       page: 1,
+      repos: [],
       loading: true
     })
-    wx.setStorageSync('lang', e.detail.value)
     this.getTrending()
+  },
+
+  tabChange: function(e) {
+    this.setData({ active: e.detail.index })
   },
 
   /**
@@ -78,7 +84,8 @@ Page({
    */
   onPullDownRefresh: function () {
     this.setData({
-      page: 1
+      page: 1,
+      repos: null
     })
     this.getTrending()
   },
@@ -87,7 +94,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    // 参考 sanshozo
+    if (this.data.page < this.data.total_pages && this.data.active == 0) {
+      this.setData({
+        btmloading: true,
+        page: this.data.page + 1
+      })
+      this.getTrending()
+    }
   },
 
   /**

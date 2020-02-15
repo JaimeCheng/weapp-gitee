@@ -1,3 +1,6 @@
+page {
+  background-color: #F6F8FA;
+}
 .van-tabs__line {
   background-color: #d96459 !important;
 }
@@ -16,6 +19,9 @@
   position: fixed;
   left: 0;
   right: 0; 
-  bottom: 40rpx;
+  bottom: 60rpx;
   background: rgba(105,132,116, .8);
+}
+.wrap {
+  padding-top: 30rpx;
 }

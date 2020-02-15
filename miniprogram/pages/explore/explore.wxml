@@ -1,16 +1,44 @@
 <!--pages/explore/explore.wxml-->
-<van-tabs active="{{ active }}" sticky>
+<van-tabs active="{{ active }}" bind:change="tabChange" sticky>
   <van-tab title="最新推荐">
     <van-skeleton title row="2" loading="{{ loading }}">
-      <view>实际内容</view>
+      <view class="wrap">
+        <repo-item wx:for="{{repos}}" wx:key="index" repo-data="{{ item }}" />
+        <view wx:if="{{ repos.length === 0 }}" class="empty center">
+          <image src="../../assets/logo_o.png" mode="widthFix"></image>
+          <text>- 暂无更多内容 -</text>
+        </view>
+      </view>
     </van-skeleton>
     <van-skeleton wx:for="{{ [1, 2, 3, 4, 5] }}" wx:key="*this" title row="2" loading="{{ loading }}" />
   </van-tab>
-  <van-tab title="今日热门"></van-tab>
-  <van-tab title="本周热门"></van-tab>
+  <van-tab title="今日热门">
+    <van-skeleton title row="2" loading="{{ loading }}">
+      <view class="wrap">
+        <repo-item wx:for="{{ trending.daily }}" wx:key="index" repo-data="{{ item }}" />
+        <view wx:if="{{ trending.daily.length === 0 }}" class="empty center">
+          <image src="../../assets/logo_o.png" mode="widthFix"></image>
+          <text>- 暂无更多内容 -</text>
+        </view>
+      </view>
+    </van-skeleton>
+    <van-skeleton wx:for="{{ [1, 2, 3, 4, 5] }}" wx:key="*this" title row="2" loading="{{ loading }}" />
+  </van-tab>
+  <van-tab title="本周热门">
+    <van-skeleton title row="2" loading="{{ loading }}">
+      <view class="wrap">
+        <repo-item wx:for="{{ trending.weekily }}" wx:key="index" repo-data="{{ item }}" />
+        <view wx:if="{{ trending.weekily.length === 0 }}" class="empty center">
+          <image src="../../assets/logo_o.png" mode="widthFix"></image>
+          <text>- 暂无更多内容 -</text>
+        </view>
+      </view>
+    </van-skeleton>
+    <van-skeleton wx:for="{{ [1, 2, 3, 4, 5] }}" wx:key="*this" title row="2" loading="{{ loading }}" />
+  </van-tab>
 </van-tabs>
 
-<!-- <image class="loading" hidden="{{ !loading }}" src="../../assets/loading.gif"></image> -->
+<image class="btm-loading" hidden="{{ !btmloading }}" src="../../assets/loading.gif"></image>
 
 <picker bindchange="bindPickerChange" value="{{index}}" range="{{langArr}}" range-key="val">
   <view class="picker">
@@ -18,7 +46,3 @@
   </view>
 </picker>
 
-<!-- <view class="empty center">
-  <image src="../../assets/logo_o.png" mode="widthFix"></image>
-  <text>- 暂无更多内容 -</text>
-</view> -->
