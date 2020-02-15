@@ -18,7 +18,7 @@
         <user-item wx:for="{{users}}" wx:key="index" user-data="{{ item }}" />
         <view wx:if="{{ users.length === 0 }}" class="empty center">
           <image src="../../assets/logo_o.png" mode="widthFix"></image>
-          <text>- 暂无相关内容 -</text>
+          <text>- 暂无相关用户 -</text>
         </view>
       </view>
     </van-skeleton>
