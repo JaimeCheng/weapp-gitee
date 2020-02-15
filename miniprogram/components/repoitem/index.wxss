@@ -13,7 +13,7 @@
   align-items: center;
   margin-bottom: 24rpx;
 }
-.repo-title image {
+.repo-title .icon {
   width: 40rpx;
   height: 40rpx;
   margin-right: 16rpx;
@@ -29,13 +29,20 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-.repo-icon {
+.repo-icon, .repo-lang {
   font-size: 28rpx;
-  margin-right: 80rpx;
+  margin-right: 50rpx;
   display: inline-block;
 }
-.repo-icon image{
+.repo-icon .icon {
   width: 38rpx;
   height: 38rpx;
   vertical-align: -6rpx;
+}
+.repo-lang {
+  background-color: #EFEFEF;
+  color: #6A6A6A;
+  padding: 8rpx 12rpx;
+  border-radius: 4rpx;
+  font-size: 24rpx;
 }

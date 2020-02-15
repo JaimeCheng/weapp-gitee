@@ -2,23 +2,24 @@
 <view class="repo-item">
   <navigator url="../../pages/repo/home" hover-class="none">
     <view class="repo-title">
-      <image src="../../assets/icon/repo.png" mode="widthFix"></image>
-      <text>{{ repoData.repo_title}}</text>
+      <image class="icon" src="../../assets/icon/repo.png" mode="widthFix"></image>
+      <text>{{ repoData.repo_title || repoData.human_name }}</text>
     </view>
-    <view class="repo-desc">{{ repoData.repo_desc }}</view>
-    <view class="repo-social">
+    <view class="repo-desc">{{ repoData.repo_desc || repoData.description }}</view>
+    <view wx:if="{{ repoData.owner_url || repoData.human_name }}" class="repo-social">
       <view class="repo-icon">
-        <image src="../../assets/icon/watch.png" mode="widthFix"></image>
-        {{ repoData.watch }}
+        <image class="icon" src="../../assets/icon/watch.png" mode="widthFix"></image>
+        {{ repoData.watch || repoData.watchers_count }}
       </view>
       <view class="repo-icon">
-        <image src="../../assets/icon/star.png" mode="widthFix"></image>
-        {{ repoData.star }}
+        <image class="icon" src="../../assets/icon/star.png" mode="widthFix"></image>
+        {{ repoData.star || repoData.stargazers_count }}
       </view>
       <view class="repo-icon">
-        <image src="../../assets/icon/fork.png" mode="widthFix"></image>
-        {{ repoData.fork }}
+        <image class="icon" src="../../assets/icon/fork.png" mode="widthFix"></image>
+        {{ repoData.fork || repoData.forks_count }}
       </view>
+      <view wx:if="{{ repoData.repo_lang || repoData.language }}" class="repo-lang">{{ repoData.repo_lang || repoData.language }}</view>
     </view>
   </navigator>
 </view>

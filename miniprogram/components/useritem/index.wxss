@@ -1,0 +1,20 @@
+/* components/useritem/index.wxss */
+.user-item {
+  color: #444;
+  padding: 24rpx;
+  margin-bottom: 30rpx;
+  border-radius: 8rpx;
+  background-color: #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+}
+.user-wrap {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 1rpx solid #ccc;
+  margin-right: 40rpx;
+}
