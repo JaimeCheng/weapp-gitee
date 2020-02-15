@@ -3,6 +3,8 @@
   "usingComponents": {
     "van-tab": "../../vant/tab/index",
     "van-tabs": "../../vant/tabs/index",
-    "van-skeleton": "../../vant/skeleton/index"
+    "van-skeleton": "../../vant/skeleton/index",
+    "repo-item": "../../components/repoitem/index",
+    "user-item": "../../components/useritem/index"
   }
 }

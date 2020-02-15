@@ -7,11 +7,15 @@ Page({
    */
   data: {
     active: 0,
-    page: 1,
-    loading: true,
+    r_page: 1,
+    r_total_pages: null,
+    u_page: 1,
+    u_total_pages: null,
     q: '',
-    repos: [],
-    users: []
+    repos: null,
+    users: null,
+    loading: true,
+    btmloading: false
   },
 
   /**
@@ -40,13 +44,31 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (this.data.active == 0 && !this.data.r_total_pages) {
+      this.setData({
+        btmloading: true,
+        r_page: this.data.r_page + 1
+      })
+      this.fetchRepo()
+    }
+    if (this.data.active == 1 && !this.data.u_total_pages) {
+      this.setData({
+        btmloading: true,
+        u_page: this.data.u_page + 1
+      })
+      this.fetchUser()
+    }
   },
 
   tabChange: function (e) {
-    if (!e.detail.name) {
+    this.setData({ active: e.detail.index })
+    if (!e.detail.index && !this.data.repos) {
       this.fetchRepo()
-    } else {
+    }
+    if (e.detail.index & !this.data.users) {
+      this.setData({
+        loading: true
+      })
       this.fetchUser()
     }
   },
@@ -54,13 +76,25 @@ Page({
   fetchRepo: function () {
     const query = {
       q: this.data.q,
-      page: this.data.page
+      page: this.data.r_page
     }
     SEARCH.searchRepo(query).then(res => {
-      console.log(res)
+      if (!this.data.repos) {
+        this.setData({
+          repos: []
+        })
+      }
+      const repos = this.data.repos.concat(res)
       this.setData({
-        loading: false
+        repos: repos,
+        loading: false,
+        btmloading: false
       })
+      if (res.length === 0) {
+        this.setData({
+          r_total_pages: this.data.r_page
+        })
+      }
     }).catch(err => {
       console.log(err)
     })
@@ -69,13 +103,25 @@ Page({
   fetchUser: function () {
     const query = {
       q: this.data.q,
-      page: this.data.page
+      page: this.data.u_page
     }
     SEARCH.searchUser(query).then(res => {
-      console.log(res)
+      if (!this.data.users) {
+        this.setData({
+          users: []
+        })
+      }
+      const users = this.data.users.concat(res)
       this.setData({
-        loading: false
+        users: users,
+        loading: false,
+        btmloading: false
       })
+      if (res.length === 0) {
+        this.setData({
+          u_total_pages: this.data.u_page
+        })
+      }
     }).catch(err => {
       console.log(err)
     })
