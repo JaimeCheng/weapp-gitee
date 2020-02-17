@@ -30,19 +30,20 @@
   overflow: hidden;
 }
 .repo-icon, .repo-lang {
-  font-size: 28rpx;
+  font-size: 24rpx;
   margin-right: 50rpx;
   display: inline-block;
 }
 .repo-icon .icon {
-  width: 38rpx;
-  height: 38rpx;
+  width: 34rpx;
+  height: 34rpx;
   vertical-align: -6rpx;
 }
 .repo-lang {
   background-color: #EFEFEF;
   color: #6A6A6A;
-  padding: 8rpx 12rpx;
+  padding: 0 12rpx;
   border-radius: 4rpx;
   font-size: 24rpx;
+  line-height: 1.2;
 }

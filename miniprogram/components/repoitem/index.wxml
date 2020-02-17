@@ -9,15 +9,15 @@
     <view wx:if="{{ repoData.owner_url || repoData.human_name }}" class="repo-social">
       <view class="repo-icon">
         <image class="icon" src="../../assets/icon/watch.png" mode="widthFix"></image>
-        {{ repoData.watch || repoData.watchers_count }}
+        {{ repoData.watch || repoData.watchers_count || 0 }}
       </view>
       <view class="repo-icon">
         <image class="icon" src="../../assets/icon/star.png" mode="widthFix"></image>
-        {{ repoData.star || repoData.stargazers_count }}
+        {{ repoData.star || repoData.stargazers_count || 0 }}
       </view>
       <view class="repo-icon">
         <image class="icon" src="../../assets/icon/fork.png" mode="widthFix"></image>
-        {{ repoData.fork || repoData.forks_count }}
+        {{ repoData.fork || repoData.forks_count || 0 }}
       </view>
       <view wx:if="{{ repoData.repo_lang || repoData.language }}" class="repo-lang">{{ repoData.repo_lang || repoData.language }}</view>
     </view>
