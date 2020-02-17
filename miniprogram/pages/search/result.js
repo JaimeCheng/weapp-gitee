@@ -97,6 +97,10 @@ Page({
       }
     }).catch(err => {
       console.log(err)
+      this.setData({
+        loading: false,
+        btmloading: false
+      })
     })
   },
 
@@ -123,7 +127,10 @@ Page({
         })
       }
     }).catch(err => {
-      console.log(err)
+      this.setData({
+        loading: false,
+        btmloading: false
+      })
     })
   }
 })
