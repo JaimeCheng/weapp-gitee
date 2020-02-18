@@ -1,7 +1,0 @@
-/* miniprogram/pages/user/following.wxss */
-page {
-  background-color: #F6F8FA;
-}
-.wrap {
-  padding-top: 30rpx;
-}

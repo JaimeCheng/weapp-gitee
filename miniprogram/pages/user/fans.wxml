@@ -1,10 +1,10 @@
-<!--miniprogram/pages/user/following.wxml-->
+<!--miniprogram/pages/user/fans.wxml-->
 <van-skeleton avatar title row="1" loading="{{ loading }}">
   <view class="wrap">
     <user-item wx:for="{{users}}" wx:key="index" user-data="{{ item }}" />
     <view wx:if="{{ users.length === 0 }}" class="empty center">
       <image src="../../assets/logo_o.png" mode="widthFix"></image>
-      <text>- 暂未关注任何用户 -</text>
+      <text>{{ text }}</text>
     </view>
   </view>
 </van-skeleton>

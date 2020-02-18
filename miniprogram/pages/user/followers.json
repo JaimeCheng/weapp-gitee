@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "粉丝",
-  "usingComponents": {
-    "van-skeleton": "../../vant/skeleton/index",
-    "user-item": "../../components/useritem/index"
-  }
-}

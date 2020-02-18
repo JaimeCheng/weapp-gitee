@@ -1,5 +1,4 @@
 {
-  "navigationBarTitleText": "关注",
   "usingComponents": {
     "van-skeleton": "../../vant/skeleton/index",
     "user-item": "../../components/useritem/index"

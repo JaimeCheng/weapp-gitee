@@ -1,4 +1,4 @@
-/* miniprogram/pages/user/followers.wxss */
+/* miniprogram/pages/user/fans.wxss */
 page {
   background-color: #F6F8FA;
 }
