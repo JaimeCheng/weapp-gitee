@@ -1,0 +1,10 @@
+/* miniprogram/pages/repo/list.wxss */
+page {
+  background-color: #F6F8FA;
+}
+/* .van-skeleton {
+  margin-top: 40rpx;
+} */
+.wrap {
+  padding-top: 30rpx;
+}

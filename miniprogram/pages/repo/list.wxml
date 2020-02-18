@@ -1,0 +1,12 @@
+<!--miniprogram/pages/repo/list.wxml-->
+<van-skeleton title row="2" loading="{{ loading }}">
+  <view class="wrap">
+    <repo-item wx:for="{{repos}}" wx:key="index" repo-data="{{ item }}" />
+    <view wx:if="{{ repos.length === 0 }}" class="empty center">
+      <image src="../../assets/logo_o.png" mode="widthFix"></image>
+      <text>- 暂无内容 -</text>
+    </view>
+  </view>
+</van-skeleton>
+<van-skeleton wx:for="{{ [1, 2, 3, 4, 5] }}" wx:key="*this" title row="2" loading="{{ loading }}" />
+<image class="btm-loading" hidden="{{ !btmloading }}" src="../../assets/loading.gif"></image>
