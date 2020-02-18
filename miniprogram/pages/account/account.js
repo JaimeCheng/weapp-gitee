@@ -1,6 +1,7 @@
 // pages/account/account.js
 import store from '../../store/store'
 import create from '../../store/create'
+const USER = require('../../api/user.js')
 
 create(store, {
 
@@ -8,7 +9,8 @@ create(store, {
    * 页面的初始数据
    */
   data: {
-
+    userInfo: null,
+    empty: '--'
   },
 
   /**
@@ -22,6 +24,8 @@ create(store, {
       wx.redirectTo({
         url: '../login/login',
       })
+    } else {
+      this.fetchInfo()
     }
   },
 
@@ -32,24 +36,54 @@ create(store, {
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  fetchInfo: function () {
+    USER.getMyInfo(this.store.data.token).then(res => {
+      this.setData({
+        userInfo: res
+      })
+    }).catch(err => {
+      console.log(err)
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  copyIt: function (e) {
+    const data = e.currentTarget.dataset.text
+    if (data) {
+      wx.setClipboardData({
+        data: e.currentTarget.dataset.text,
+        success (res) {
+          wx.showToast({
+            title: '内容已复制！'
+          })
+        }
+      })
+    }
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+  feedback: function () {
+    wx.navigateToMiniProgram({
+      appId: 'wx8abaf00ee8c3202e',
+      extraData: {
+        id: '125954'
+      }
+    })
+  },
 
+  logout: function () {
+    const _this = this
+    wx.showModal({
+      content: '确定要退出登录吗？',
+      success (res) {
+        if (res.confirm) {
+          wx.removeStorageSync('token')
+          _this.store.data.token = ''
+          _this.store.update()
+          wx.redirectTo({
+            url: '../login/login',
+          })
+        }
+      }
+    })
   }
+
 })

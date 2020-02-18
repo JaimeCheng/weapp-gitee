@@ -1,4 +1,65 @@
 <!--pages/account/account.wxml-->
-<text>pages/account/account.wxml</text>
+<view class="login-bg logo-bg-color">
+  <image class="user-avatar" src="{{ userInfo.avatar_url }}"></image>
+  <view class="user-name">{{ userInfo.name }}</view>
+  <view class="user-login">@{{ userInfo.login }}</view>
+</view>
 
-<navigator url="../demo/demo">dddddd</navigator>
+<view class="wrap">
+  <view class="info_view">
+    <view class="item_view">
+      <navigator url="../repo/starred" hover-class="none">
+        <view class="item">
+          <view class="title">{{ userInfo.stared }}</view>
+          <view class="desc">Starred</view>
+        </view>
+      </navigator>
+      <view class="line"></view>
+      <navigator url="../user/followers?login={{userInfo.login}}" hover-class="none">
+        <view class="item">
+          <view class="title">{{ userInfo.followers }}</view>
+          <view class="desc">Followers</view>
+        </view>
+      </navigator>
+      <view class="line"></view>
+      <navigator url="../user/following?login={{userInfo.login}}" hover-class="none">
+        <view class="item">
+          <view class="title">{{ userInfo.following }}</view>
+          <view class="desc">Following</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="list_view">
+    <view class="list">
+      <view class="list_title"><van-icon name="edit" /></view>
+      <view class="list_content">{{ userInfo.bio || empty }}</view>
+    </view>
+    <view class="list" bindtap="copyIt" data-text="{{userInfo.email}}">
+      <view class="list_title"><van-icon name="envelop-o" /></view>
+      <view class="list_content">{{ userInfo.email || empty }}</view>
+    </view>
+    <view class="list" bindtap="copyIt" data-text="{{userInfo.blog}}">
+      <view class="list_title"><van-icon name="wap-home-o" /></view>
+      <view class="list_content">{{ userInfo.blog || empty }}</view>
+    </view>
+    <view class="list" bindtap="copyIt" data-text="{{userInfo.weibo}}">
+      <view class="list_title">
+        <image src="../../assets/icon/weibo.png"></image>
+      </view>
+      <view class="list_content">{{ userInfo.weibo || empty }}</view>
+    </view>
+  </view>
+
+  <view class="list_view menu_view">
+    <view class="list" bindtap="feedback">
+      <view class="list_title">反馈</view>
+      <view class="list_content"><van-icon name="arrow" /></view>
+    </view>
+    <view class="list" bindtap="logout">
+      <view class="list_title">退出</view>
+      <view class="list_content"><van-icon name="arrow" /></view>
+    </view>
+  </view>
+</view>

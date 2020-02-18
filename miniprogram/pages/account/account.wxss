@@ -1,1 +1,122 @@
 /* pages/account/account.wxss */
+page {
+  background-color: #F6F8FA;
+}
+.wrap {
+  padding: 0 50rpx;
+}
+.login-bg {
+  border-width: 0 0 60rpx 60rpx;
+  border-radius: 0 0 50% 50%;
+  padding: 60rpx 0 50rpx;
+  margin-bottom: 40rpx;
+  text-align: center;
+  color: #fff;
+}
+.user-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  display: block;
+  margin: 0 auto 20rpx;
+  border-radius: 50%;
+  border: 4rpx solid #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+.user-name {
+  font-size: 36rpx;
+  margin-bottom: 10rpx;
+}
+.user-login {
+  font-size: 28rpx;
+  font-weight: 300;
+}
+.info_view {
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 14rpx;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+}
+
+.item_view {
+  background-color: #fff;
+  width: 100%;
+  height: 86rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30rpx;
+  margin-top: 30rpx;
+}
+.line {
+  background-color: #7f7f7f;
+  width: 2rpx;
+  height: 40rpx;
+}
+
+.item_view navigator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  width: 30%;
+}
+.title {
+  text-align: center;
+  color: #333;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.desc {
+  text-align: center;
+  color: #7f7f7f;
+  font-size: 26rpx;
+}
+.list_view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  margin-top: 40rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+  padding: 10rpx 0;
+}
+.list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  width: 90%;
+  height: 70rpx;
+}
+.list image {
+  width: 32rpx;
+  height: 32rpx;
+}
+.list_title {
+  text-align: center;
+  color: #333;
+  font-size: 32rpx;
+}
+
+.list_content {
+  text-align: right;
+  color: #7f7f7f;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.menu_view .list_title {
+  font-size: 28rpx;
+}
+.menu_view .van-icon {
+  line-height: 70rpx;
+}
