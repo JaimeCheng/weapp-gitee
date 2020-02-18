@@ -1,0 +1,2 @@
+/* miniprogram/pages/user/home.wxss */
+@import '../account/account.wxss'
