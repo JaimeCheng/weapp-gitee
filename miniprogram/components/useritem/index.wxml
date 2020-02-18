@@ -1,9 +1,9 @@
 <!--components/useritem/index.wxml-->
 <view class="user-item">
-  <navigator url="../../pages/user/home" hover-class="none">
+  <navigator url="../../pages/user/home?login={{userData.login}}" hover-class="none">
     <view class="user-wrap">
       <image class="avatar"  src="{{userData.avatar_url}}" mode="widthFix"></image>
-      <text class="name">{{userData.login}}</text>
+      <text class="name">{{userData.name}}</text>
     </view>
   </navigator>
 </view>
