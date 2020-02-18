@@ -1,0 +1,12 @@
+<!--miniprogram/pages/user/following.wxml-->
+<van-skeleton avatar title row="1" loading="{{ loading }}">
+  <view class="wrap">
+    <user-item wx:for="{{users}}" wx:key="index" user-data="{{ item }}" />
+    <view wx:if="{{ users.length === 0 }}" class="empty center">
+      <image src="../../assets/logo_o.png" mode="widthFix"></image>
+      <text>- 暂未关注任何用户 -</text>
+    </view>
+  </view>
+</van-skeleton>
+<van-skeleton wx:for="{{ [1, 2, 3, 4, 5] }}" wx:key="*this" title row="1" loading="{{ loading }}" />
+<image class="btm-loading" hidden="{{ !btmloading }}" src="../../assets/loading.gif"></image>
