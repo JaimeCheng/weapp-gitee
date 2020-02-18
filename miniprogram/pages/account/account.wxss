@@ -3,7 +3,7 @@ page {
   background-color: #F6F8FA;
 }
 .wrap {
-  padding: 0 50rpx;
+  padding: 0 30rpx;
 }
 .login-bg {
   border-width: 0 0 60rpx 60rpx;
@@ -38,6 +38,8 @@ page {
   background-color: #fff;
   border-radius: 14rpx;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+  /* padding-left: 20rpx;
+  padding-right: 20rpx; */
 }
 
 .item_view {
@@ -62,7 +64,7 @@ page {
   flex-direction: column;
   align-items: center;
   background-color: #fff;
-  width: 30%;
+  width: 20%;
 }
 .title {
   text-align: center;

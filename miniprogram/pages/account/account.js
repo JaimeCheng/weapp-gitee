@@ -2,6 +2,7 @@
 import store from '../../store/store'
 import create from '../../store/create'
 const USER = require('../../api/user.js')
+const REPO = require('../../api/repo.js')
 
 create(store, {
 
@@ -10,7 +11,8 @@ create(store, {
    */
   data: {
     userInfo: null,
-    empty: '--'
+    empty: '--',
+    repos: '-'
   },
 
   /**
@@ -26,6 +28,7 @@ create(store, {
       })
     } else {
       this.fetchInfo()
+      this.fetchRepos()
     }
   },
 
@@ -40,6 +43,20 @@ create(store, {
     USER.getMyInfo(this.store.data.token).then(res => {
       this.setData({
         userInfo: res
+      })
+    }).catch(err => {
+      console.log(err)
+    })
+  },
+
+  fetchRepos: function () {
+    const query = {
+      sort: 'pushed',
+      per_page: 100
+    }
+    REPO.getMyRepos(query).then(res => {
+      this.setData({
+        repos: res.length < 100 ? res.length : '99+'
       })
     }).catch(err => {
       console.log(err)

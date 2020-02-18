@@ -8,21 +8,28 @@
 <view class="wrap">
   <view class="info_view">
     <view class="item_view">
-      <navigator url="../repo/starred" hover-class="none">
+      <navigator url="../repo/list?type=myall" hover-class="none">
+        <view class="item">
+          <view class="title">{{ repos }}</view>
+          <view class="desc">Repos</view>
+        </view>
+      </navigator>
+      <view class="line"></view>
+      <navigator url="../repo/list?login={{userInfo.login}}&type=star" hover-class="none">
         <view class="item">
           <view class="title">{{ userInfo.stared }}</view>
           <view class="desc">Starred</view>
         </view>
       </navigator>
       <view class="line"></view>
-      <navigator url="../user/followers?login={{userInfo.login}}" hover-class="none">
+      <navigator url="../user/fans?login={{userInfo.login}}&type=followers" hover-class="none">
         <view class="item">
           <view class="title">{{ userInfo.followers }}</view>
           <view class="desc">Followers</view>
         </view>
       </navigator>
       <view class="line"></view>
-      <navigator url="../user/following?login={{userInfo.login}}" hover-class="none">
+      <navigator url="../user/fans?login={{userInfo.login}}&type=following" hover-class="none">
         <view class="item">
           <view class="title">{{ userInfo.following }}</view>
           <view class="desc">Following</view>
