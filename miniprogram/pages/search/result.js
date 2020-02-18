@@ -11,6 +11,7 @@ Page({
     r_total_pages: null,
     u_page: 1,
     u_total_pages: null,
+    per_page: 20,
     q: '',
     repos: null,
     users: null,
@@ -76,7 +77,8 @@ Page({
   fetchRepo: function () {
     const query = {
       q: this.data.q,
-      page: this.data.r_page
+      page: this.data.r_page,
+      per_page: this.data.per_page
     }
     SEARCH.searchRepo(query).then(res => {
       if (!this.data.repos) {
@@ -90,7 +92,7 @@ Page({
         loading: false,
         btmloading: false
       })
-      if (res.length === 0) {
+      if (res.length < this.data.per_page) {
         this.setData({
           r_total_pages: this.data.r_page
         })
@@ -107,7 +109,8 @@ Page({
   fetchUser: function () {
     const query = {
       q: this.data.q,
-      page: this.data.u_page
+      page: this.data.u_page,
+      per_page: this.data.per_page
     }
     SEARCH.searchUser(query).then(res => {
       if (!this.data.users) {
@@ -121,7 +124,7 @@ Page({
         loading: false,
         btmloading: false
       })
-      if (res.length === 0) {
+      if (res.length < this.data.per_page) {
         this.setData({
           u_total_pages: this.data.u_page
         })
