@@ -28,7 +28,7 @@ create(store, {
       })
     } else {
       this.fetchInfo()
-      this.fetchRepos()
+      // this.fetchRepos()
     }
   },
 

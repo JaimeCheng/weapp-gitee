@@ -10,15 +10,15 @@
     <view class="item_view">
       <navigator url="../repo/list?type=myall" hover-class="none">
         <view class="item">
-          <view class="title">{{ repos }}</view>
-          <view class="desc">Repos</view>
+          <view class="title">{{ userInfo.watched }}</view>
+          <view class="desc">Watches</view>
         </view>
       </navigator>
       <view class="line"></view>
       <navigator url="../repo/list?login={{userInfo.login}}&type=star" hover-class="none">
         <view class="item">
           <view class="title">{{ userInfo.stared }}</view>
-          <view class="desc">Starred</view>
+          <view class="desc">Stars</view>
         </view>
       </navigator>
       <view class="line"></view>
