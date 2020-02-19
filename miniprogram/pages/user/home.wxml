@@ -18,7 +18,7 @@
       <navigator url="../repo/list?login={{userInfo.login}}&type=star" hover-class="none">
         <view class="item">
           <view class="title">{{ userInfo.stared }}</view>
-          <view class="desc">Starred</view>
+          <view class="desc">Stars</view>
         </view>
       </navigator>
       <view class="line"></view>
