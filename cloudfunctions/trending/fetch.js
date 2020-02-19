@@ -24,7 +24,7 @@ async function fetchData({ lang = '', page = 1 } = {}) {
         const desp = $(item).find('.description');
         const obj = {
           repo_title: title.text(),
-          repo_path: title.attr('href'),
+          repo_path: title.attr('href').substr(1),
           repo_url: GITEE_URL + title.attr('href'),
           repo_desc: desp.text()
         };
@@ -43,7 +43,7 @@ async function fetchData({ lang = '', page = 1 } = {}) {
       avatar_url: avatar ? avatar : '',
       owner_url: GITEE_URL + $(item).find('.avatar').attr('href'),
       repo_title: title.text(),
-      repo_path: title.attr('href'),
+      repo_path: title.attr('href').substr(1),
       repo_url: GITEE_URL + title.attr('href'),
       repo_lang: $(item).find('.project-meta .is-lang').text(),
       repo_desc: $(item).find('.project-desc').text(),
