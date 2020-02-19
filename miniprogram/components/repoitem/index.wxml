@@ -1,6 +1,6 @@
 <!--components/repoitem/index.wxml-->
 <view class="repo-item">
-  <navigator url="../../pages/repo/home" hover-class="none">
+  <navigator url="../../pages/repo/home?path={{ repoData.repo_path || repoData.full_name }}" hover-class="none">
     <view class="repo-title">
       <image class="icon" src="../../assets/icon/repo.png" mode="widthFix"></image>
       <text>{{ repoData.repo_title || repoData.human_name }}</text>
