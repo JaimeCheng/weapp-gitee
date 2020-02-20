@@ -50,12 +50,10 @@
     </view>
 
     <view class="list_view menu_view">
-      <view class="list">
+      <view class="list" bindtap="toView">
         <view class="list_title">View Code</view>
         <view class="list_content">
-          <navigator hover-class="none" url="../repo/dir">
-            <van-icon name="arrow" />
-          </navigator>
+          <van-icon name="arrow" />
         </view>
       </view>
     </view>

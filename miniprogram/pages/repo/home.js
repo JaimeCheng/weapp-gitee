@@ -80,6 +80,18 @@ Page({
     }
   },
 
+  toView: function () {
+    const query = {
+      owner: this.data.owner,
+      repo: this.data.repo,
+      name: this.data.detail.human_name,
+      sha: this.data.detail.default_branch
+    }
+    wx.navigateTo({
+      url: `../repo/dir?query=${JSON.stringify(query)}`
+    })
+  },
+
   /**
    * 用户点击右上角分享
    */
