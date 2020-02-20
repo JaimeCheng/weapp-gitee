@@ -10,6 +10,15 @@ page, input, .place-holder {
 .center {
   text-align: center;
 }
+.box-shadow {
+  border-radius: 10rpx;
+  background-color: #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+}
+.alink {
+  color: #d96459 !important;
+  border-bottom: 2rpx solid #ffe4e4;
+}
 .wrap {
   padding: 0 30rpx;
 }

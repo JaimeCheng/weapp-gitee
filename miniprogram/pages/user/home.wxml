@@ -45,13 +45,13 @@
     </view>
     <view class="list" bindtap="copyIt" data-text="{{userInfo.blog}}">
       <view class="list_title"><van-icon name="wap-home-o" /></view>
-      <view class="list_content">{{ userInfo.blog || empty }}</view>
+      <view class="list_content {{ userInfo.blog ? 'alink' : ''}}">{{ userInfo.blog || empty }}</view>
     </view>
     <view class="list" bindtap="copyIt" data-text="{{userInfo.weibo}}">
       <view class="list_title">
         <image src="../../assets/icon/weibo.png"></image>
       </view>
-      <view class="list_content">{{ userInfo.weibo || empty }}</view>
+      <view class="list_content {{ userInfo.weibo ? 'alink' : ''}}">{{ userInfo.weibo || empty }}</view>
     </view>
   </view>
 </view>
