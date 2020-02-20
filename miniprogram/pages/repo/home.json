@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "van-icon": "../../vant/icon/index",
+    "towxml": "../../towxml/towxml"
+  }
+}

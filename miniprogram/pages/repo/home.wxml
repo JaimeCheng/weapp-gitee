@@ -1,0 +1,69 @@
+<!--miniprogram/pages/repo/home.wxml-->
+<view wx:if="{{ !loading }}">
+  <view class="repo-bg logo-bg-color wrap">
+    <view class="repo-name center">{{ detail.name }}</view>
+    <view class="repo-desc center">{{ detail.description || no }}</view>
+  </view>
+
+  <view class="boxs wrap">
+    <view class="repo-count box-shadow">
+      <view class="item center">
+        <image src="../../assets/icon/watch.png"></image>
+        <text>{{ detail.watchers_count }}</text>
+      </view> 
+      <view class="item center">
+        <image src="../../assets/icon/star.png"></image>
+        <text>{{ detail.stargazers_count }}</text>
+      </view> 
+      <view class="item center">
+        <image src="../../assets/icon/fork.png"></image>
+        <text>{{ detail.forks_count }}</text>
+      </view> 
+    </view>
+
+    <view class="list_view menu_view">
+      <view class="list">
+        <view class="list_title">作者</view>
+        <view class="list_content">
+          <navigator hover-class="none" url="../user/home?login={{detail.owner.login}}">
+            <text>{{ detail.owner.name }}</text>
+            <van-icon name="arrow" />
+          </navigator>
+        </view>
+      </view>
+      <view class="list">
+        <view class="list_title">分支</view>
+        <view class="list_content">{{ detail.default_branch }}</view>
+      </view>
+      <view wx:if="{{ detail.language }}" class="list">
+        <view class="list_title">语言</view>
+        <view class="list_content">{{ detail.language }}</view>
+      </view>
+      <view class="list">
+        <view class="list_title">Url</view>
+        <view class="list_content alink" bindtap="copyIt" data-text="{{repourl}}">{{ repourl}}</view>
+      </view>
+      <view wx:if="{{ detail.license }}" class="list">
+        <view class="list_title">License</view>
+        <view class="list_content">{{ detail.license }}</view>
+      </view>
+    </view>
+
+    <view class="list_view menu_view">
+      <view class="list">
+        <view class="list_title">View Code</view>
+        <view class="list_content">
+          <navigator hover-class="none" url="../repo/dir">
+            <van-icon name="arrow" />
+          </navigator>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{readme}}" class="list_view">
+      <view class="box-title">README.md</view>
+      <towxml style="width: 100%;" loading="{{loading}}" host="{{host}}" curr-this="{{ currThis }}" md="{{ readme }}"></towxml> 
+    </view>
+  </view>
+</view>
+<image wx:else class="loading" src="../../assets/loading.gif"></image>

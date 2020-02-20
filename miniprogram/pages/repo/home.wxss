@@ -1,0 +1,53 @@
+/* miniprogram/pages/repo/home.wxss */
+@import '../account/account.wxss';
+page {
+  background-color: #F6F8FA;
+}
+.boxs {
+  margin-top: -50rpx;
+  padding-bottom: 60rpx;
+}
+.repo-bg {
+  color: #fff;
+  padding-bottom: 80rpx;
+}
+.repo-name {
+  font-size: 40rpx;
+  padding: 30rpx 0;
+}
+.repo-desc {
+  font-size: 28rpx;
+  font-weight: 300;
+  line-height: 1.6;
+}
+.repo-count {
+  padding: 30rpx 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.repo-count image{
+  width: 44rpx;
+  height: 44rpx;
+  display: block;
+  margin: 0 auto 10rpx;
+}
+.repo-count text {
+  font-weight: 500;
+}
+.list_view {
+  margin-top: 30rpx;
+  padding: 20rpx 0;
+}
+.list_content text {
+  vertical-align: 4rpx;
+}
+.list_view image {
+  max-width: 100% !important;
+}
+.box-title {
+  width: 90%;
+  font-size: 32rpx;
+  margin-top: 10rpx;
+  text-align: left;
+}
