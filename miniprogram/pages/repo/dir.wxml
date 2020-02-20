@@ -1,0 +1,12 @@
+<!--miniprogram/pages/repo/dir.wxml-->
+<view wx:if="{{ !loading }}" class="wrap">
+  <view wx:for="{{ root.tree }}" wx:key="*this" class="box-shadow tree-item" data-sha="{{ item.sha }}" data-path="{{ item.path }}" data-type="{{ item.type }}" bindtap="toView">
+    <view class="left">
+      <image wx:if="{{ item.type === 'tree' }}" src="../../assets/icon/dir.png" mode="widthFix"></image>
+      <image wx:if="{{ item.type === 'blob' }}" src="../../assets/icon/file.png" mode="widthFix"></image>
+      <text>{{ item.path }}</text>
+    </view>
+    <van-icon wx:if="{{ item.type === 'tree' }}" name="arrow" />
+  </view>
+</view>
+<image wx:else class="loading" src="../../assets/loading.gif"></image>

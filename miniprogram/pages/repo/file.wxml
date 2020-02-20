@@ -1,0 +1,5 @@
+<!--miniprogram/pages/repo/file.wxml-->
+<view wx:if="{{ !loading }}" class="wrap">
+  <towxml loading="{{loading}}" curr-this="{{ currThis }}" md="{{ content || empty }}"></towxml> 
+</view>
+<image wx:else class="loading" src="../../assets/loading.gif"></image>

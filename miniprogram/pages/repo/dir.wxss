@@ -1,0 +1,26 @@
+/* miniprogram/pages/repo/dir.wxss */
+page {
+  background-color: #F6F8FA;
+}
+.wrap {
+  padding-bottom: 50rpx;
+}
+.tree-item {
+  margin: 30rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+}
+.tree-item .left {
+  display: flex;
+  align-items: center;
+}
+.tree-item image {
+  width: 45rpx;
+  height: 45rpx;
+  margin-right: 20rpx;
+}
+.tree-item .van-icon {
+  color: #7f7f7f;
+}
