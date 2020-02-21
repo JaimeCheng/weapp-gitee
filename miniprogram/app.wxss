@@ -86,3 +86,7 @@ page, input, .place-holder {
 .van-skeleton {
   margin-top: 40rpx;
 }
+
+.van-tabs__line {
+  background-color: #d96459 !important;
+}

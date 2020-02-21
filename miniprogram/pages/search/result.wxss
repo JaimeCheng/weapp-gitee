@@ -1,6 +1,7 @@
 /* miniprogram/pages/search/result.wxss */
 page {
   background-color: #F6F8FA;
+  padding-bottom: 30rpx;
 }
 .wrap {
   padding-top: 30rpx;

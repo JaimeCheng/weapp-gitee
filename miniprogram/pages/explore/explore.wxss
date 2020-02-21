@@ -1,5 +1,6 @@
 page {
   background-color: #F6F8FA;
+  padding-bottom: 30rpx;
 }
 .van-tabs__line {
   background-color: #d96459 !important;
