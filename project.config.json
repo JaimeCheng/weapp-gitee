@@ -75,9 +75,24 @@
 					"scene": null
 				},
 				{
+					"id": 2,
+					"name": "pages/repo/comment",
+					"pathName": "pages/repo/comment",
+					"query": "query={\"owner\":\"oschina\",\"repo\":\"iphone-app\",\"number\":\"I17Q8D\"}",
+					"scene": null
+				},
+				{
 					"id": -1,
-					"name": "token",
-					"pathName": "pages/about/token",
+					"name": "account",
+					"pathName": "pages/account/account",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/repo/issue",
+					"pathName": "pages/repo/issue",
+					"query": "query={\"owner\":\"oschina\",\"repo\":\"iphone-app\"}",
 					"scene": null
 				}
 			]

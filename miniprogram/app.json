@@ -3,9 +3,17 @@
     "pages/explore/explore",
     "pages/login/login",
     "pages/search/search",
-    "pages/activity/activity",
     "pages/account/account",
-    "pages/demo/demo"
+    "pages/demo/demo",
+    "pages/search/result",
+    "pages/user/home",
+    "pages/user/fans",
+    "pages/repo/home",
+    "pages/repo/list",
+    "pages/repo/dir",
+    "pages/repo/file",
+    "pages/repo/issue",
+    "pages/repo/comment"
   ],
   "subpackages": [
     {
@@ -19,7 +27,9 @@
   "preloadRule": {
     "pages/login/login": {
       "network": "all",
-      "packages": ["static"]
+      "packages": [
+        "static"
+      ]
     }
   },
   "window": {
@@ -31,28 +41,30 @@
   "tabBar": {
     "color": "#7A7E83",
     "selectedColor": "#d96459",
-    "list": [{
-      "pagePath": "pages/explore/explore",
-      "text": "发现",
-      "iconPath": "assets/icon/explore.png",
-      "selectedIconPath": "assets/icon/explore_o.png"
-    }, {
-      "pagePath": "pages/search/search",
-      "text": "搜索",
-      "iconPath": "assets/icon/search.png",
-      "selectedIconPath": "assets/icon/search_o.png"
-    }, {
-      "pagePath": "pages/activity/activity",
-      "text": "动态",
-      "iconPath": "assets/icon/activity.png",
-      "selectedIconPath": "assets/icon/activity_o.png"
-    }, {
-      "pagePath": "pages/account/account",
-      "text": "我的",
-      "iconPath": "assets/icon/account.png",
-      "selectedIconPath": "assets/icon/account_o.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/explore/explore",
+        "text": "发现",
+        "iconPath": "assets/icon/explore.png",
+        "selectedIconPath": "assets/icon/explore_o.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "assets/icon/search.png",
+        "selectedIconPath": "assets/icon/search_o.png"
+      },
+      {
+        "pagePath": "pages/account/account",
+        "text": "我的",
+        "iconPath": "assets/icon/account.png",
+        "selectedIconPath": "assets/icon/account_o.png"
+      }
+    ]
   },
+  "navigateToMiniProgramAppIdList": [
+    "wx8abaf00ee8c3202e"
+  ],
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
