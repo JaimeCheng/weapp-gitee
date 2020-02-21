@@ -1,0 +1,55 @@
+<!--miniprogram/pages/repo/issue.wxml-->
+<van-tabs active="{{ active }}" sticky bind:click="tabChange">
+  <van-tab title="Open">
+    <van-skeleton title row="2" loading="{{ loading }}">
+      <view class="wrap">
+        <view wx:for="{{ open }}" wx:key="*this" class="issue-item box-shadow" bindtap="toDetail" data-item="{{ item }}">
+          <van-icon size="20" name="warning-o" color="#d96459" />
+          <view class="issue-info">
+            <view class="issue-title">
+              {{ item.title }}
+              <text wx:for="{{ item.labels }}" wx:for-item="label" wx:key="*this" class="label" style="background-color: #{{ label.color }}">{{ label.name }}</text>
+            </view>
+            <view class="issue-sub">
+              <text class="issue-number">#{{ item.number }}</text>
+              <text class="issue-time">{{ item.updated_at }}</text>
+              by {{ item.user.name }}
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{ open.length === 0 }}" class="empty center">
+          <image src="../../assets/logo_o.png" mode="widthFix"></image>
+          <text>- 暂无 -</text>
+        </view>
+      </view>
+    </van-skeleton>
+    <van-skeleton wx:for="{{ [1, 2, 3, 4, 5] }}" wx:key="*this" title row="2" loading="{{ loading }}" />
+  </van-tab>
+  <van-tab title="Closed">
+    <van-skeleton title row="2" loading="{{ loading }}">
+      <view class="wrap">
+        <view wx:for="{{ closed }}" wx:key="id" class="issue-item box-shadow" bindtap="toDetail" data-item="{{ item }}">
+          <van-icon size="20" name="passed" color="#698474" />
+          <view class="issue-info">
+            <view class="issue-title">
+              {{ item.title }}
+              <text wx:for="{{ item.labels }}" wx:for-item="label" wx:key="*this" class="label" style="background-color: #{{ label.color }}">{{ label.name }}</text>
+            </view>
+            <view class="issue-sub">
+              <text class="issue-number">#{{ item.number }}</text>
+              <text class="issue-time">{{ item.updated_at }}</text>
+              by {{ item.user.name }}
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{ closed.length === 0 }}" class="empty center">
+          <image src="../../assets/logo_o.png" mode="widthFix"></image>
+          <text>- 暂无 -</text>
+        </view>
+      </view>
+    </van-skeleton>
+    <van-skeleton wx:for="{{ [1, 2, 3, 4, 5] }}" wx:key="*this" title row="2" loading="{{ loading }}" />
+  </van-tab>
+</van-tabs>
+
+<image class="btm-loading" hidden="{{ !btmloading }}" src="../../assets/loading.gif"></image>

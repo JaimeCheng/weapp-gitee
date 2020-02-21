@@ -1,0 +1,46 @@
+/* miniprogram/pages/repo/issue.wxss */
+page {
+  background-color: #F6F8FA;
+  padding-bottom: 30rpx;
+}
+.wrap {
+  padding-top: 30rpx;
+}
+.van-icon {
+  margin-right: 20rpx;
+}
+.issue-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+}
+.issue-title {
+  font-size: 30rpx;
+  line-height: 1.4;
+  text-transform: capitalize;
+  margin-bottom: 15rpx;
+}
+.issue-sub {
+  font-size: 24rpx;
+  color: #8c92a4;
+}
+.issue-number {
+  color: #6a6a6a;
+  background-color: #efefef;
+  margin-right: 16rpx;
+  border-radius: 6rpx;
+  padding: 2rpx 8rpx;
+  font-size: 24rpx;
+}
+.issue-time {
+  margin-right: 16rpx;
+}
+.label {
+  color: #fff;
+  border-radius: 6rpx;
+  padding: 2rpx 8rpx;
+  font-size: 24rpx;
+  line-height: 1;
+  text-transform: none;
+}
