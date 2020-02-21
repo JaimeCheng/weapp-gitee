@@ -4,7 +4,6 @@
     "pages/login/login",
     "pages/search/search",
     "pages/account/account",
-    "pages/demo/demo",
     "pages/search/result",
     "pages/user/home",
     "pages/user/fans",
@@ -20,7 +19,8 @@
       "root": "staticPack",
       "name": "static",
       "pages": [
-        "about/token"
+        "about/token",
+        "about/author"
       ]
     }
   ],

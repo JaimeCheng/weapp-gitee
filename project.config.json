@@ -82,9 +82,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "account",
-					"pathName": "pages/account/account",
+					"id": 3,
+					"name": "about",
+					"pathName": "staticPack/about/author",
 					"query": "",
 					"scene": null
 				},
