@@ -1,0 +1,15 @@
+<!--miniprogram/staticPack/about/author.wxml-->
+
+<view class="wrap">
+  <view class="box-shadow box">
+    <view class="name">About Author</view>
+    <view class="page">
+      Gitee: 
+      <navigator class="alink" url="../../pages/user/home?login=jaimecheng" hover-class="none">@JaimeCheng</navigator>
+    </view>
+    <view class="page" bindtap="copyIt">
+      Github: 
+      <view class="alink">@JaimeCheng</view>
+    </view>
+  </view>
+</view>

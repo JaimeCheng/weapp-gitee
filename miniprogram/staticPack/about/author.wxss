@@ -1,0 +1,29 @@
+/* miniprogram/staticPack/about/author.wxss */
+page {
+  background-color: #F6F8FA;
+  padding-bottom: 30rpx;
+}
+.wrap {
+  width: 80vw;
+  margin: auto;
+  padding-top: 200rpx;
+}
+.box {
+  margin: auto;
+  padding: 110rpx 100rpx 70rpx ;
+}
+.name {
+  font-size: 34rpx;
+  color: #000;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+.page {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin: 40rpx auto;
+}
+.alink {
+  margin-left: 30rpx;
+}
