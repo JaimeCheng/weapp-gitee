@@ -86,6 +86,12 @@ create(store, {
     })
   },
 
+  about: function () {
+    wx.navigateTo({
+      url: '../../staticPack/about/author'
+    })
+  },
+
   logout: function () {
     const _this = this
     wx.showModal({

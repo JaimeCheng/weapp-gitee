@@ -60,6 +60,10 @@
   </view>
 
   <view class="list_view menu_view">
+    <view class="list" bindtap="about">
+      <view class="list_title">关于</view>
+      <view class="list_content"><van-icon name="arrow" /></view>
+    </view>
     <view class="list" bindtap="feedback">
       <view class="list_title">反馈</view>
       <view class="list_content"><van-icon name="arrow" /></view>
