@@ -1,0 +1,28 @@
+<!--miniprogram/pages/repo/comment.wxml-->
+<view wx:if="{{ !loading }}" class="wrap">
+  <view class="issue-main box-shadow">
+    <view class="issue-title">
+      <text class="issue-number">#{{ issue.number }}</text>
+      {{ issue.title }}
+      <text wx:for="{{ issue.labels }}" wx:for-item="label" wx:key="*this" class="label" style="background-color: #{{ label.color }}">{{ label.name }}</text>
+      <view class="issue-user">
+        <image class="avatar" src="{{ issue.user.avatar_url }}" mode="widthFIx" bindtap="toUser" data-login="{{ issue.user.login }}"></image>
+        <text class="username" bindtap="toUser" data-login="{{ issue.user.login }}">{{ issue.user.name }}</text>
+        <text class="issue-time">更新于 {{ issue.updated_at }}</text>
+      </view>
+    </view>
+    <towxml style="width: 100%;" loading="{{loading}}" curr-this="{{ currThis }}" md="{{ issue.body }}"></towxml> 
+  </view>
+  <view wx:for="{{ comments }}" wx:key="index" class="comment-item box-shadow">
+    <view class="comment-user">
+      <image src="{{ item.user.avatar_url}}" bindtap="toUser" data-login="{{ item.user.login }}"></image>
+      <view>
+        <text class="username" bindtap="toUser" data-login="{{ item.user.login }}">{{ item.user.name}}</text>
+        <text>评论于 {{ item.created_at }}</text>
+      </view>
+    </view>
+    <towxml style="width: 100%;" loading="{{loading}}" curr-this="{{ currThis }}" md="{{ item.body }}"></towxml> 
+  </view>
+</view>
+<image wx:else class="loading" src="../../assets/loading.gif"></image>
+<image class="btm-loading" hidden="{{ !btmloading }}" src="../../assets/loading.gif"></image>

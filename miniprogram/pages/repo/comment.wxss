@@ -1,0 +1,68 @@
+/* miniprogram/pages/repo/comment.wxss */
+page {
+  background-color: #F6F8FA;
+  padding-bottom: 30rpx;
+}
+.wrap {
+  padding-top: 30rpx;
+}
+.issue-main,
+.comment-item {
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+  overflow: hidden;
+}
+.issue-title {
+  padding-top: 30rpx;
+  margin: 0 20rpx;
+  font-size: 34rpx;
+  line-height: 1.4;
+  text-transform: capitalize;
+}
+.issue-main image,
+.comment-item image {
+  max-width: 100% !important;
+}
+.issue-number {
+  color: #6a6a6a;
+  margin-right: 16rpx;
+}
+.issue-user {
+  color: #8c92a4;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.issue-user .avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.username {
+  color: #5C7B8B;
+  margin-right: 30rpx;
+}
+
+.comment-user {
+  display: flex;
+  padding: 20rpx 20rpx 0;
+  color: #8c92a4;
+  font-size: 28rpx;
+  align-items: center;
+}
+.comment-user image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 30rpx;
+  border-radius: 50%;
+}
+.label {
+  color: #fff;
+  border-radius: 6rpx;
+  padding: 2rpx 8rpx;
+  font-size: 24rpx;
+  line-height: 1;
+  text-transform: none;
+}
