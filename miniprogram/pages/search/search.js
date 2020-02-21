@@ -73,10 +73,10 @@ Page({
     var searchArr = wx.getStorageSync('searchArr') && wx.getStorageSync('searchArr').split('$&')
     if (searchArr.length > 0) {
       if (searchArr.indexOf(keywords) < 0) {
-        searchArr.push(keywords)
+        searchArr.unshift(keywords)
       }
       if (searchArr.length === 11) {
-        searchArr.shift()
+        searchArr.pop()
       }
     } else {
       searchArr = [keywords]
