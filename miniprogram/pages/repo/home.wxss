@@ -51,3 +51,14 @@ page {
   margin-top: 10rpx;
   text-align: left;
 }
+.bage {
+  color: #fff;
+  border-radius: 20rpx;
+  padding: 2rpx 5rpx;
+  width: 40rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  display: inline-block;
+  vertical-align: 5rpx;
+}

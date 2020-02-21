@@ -92,6 +92,16 @@ Page({
     })
   },
 
+  toIssue: function () {
+    const query = {
+      owner: this.data.owner,
+      repo: this.data.repo
+    }
+    wx.navigateTo({
+      url: `../repo/issue?query=${JSON.stringify(query)}`
+    })
+  },
+
   /**
    * 用户点击右上角分享
    */

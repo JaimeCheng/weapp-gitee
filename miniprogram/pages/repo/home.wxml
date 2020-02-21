@@ -56,6 +56,13 @@
           <van-icon name="arrow" />
         </view>
       </view>
+      <view class="list" bindtap="toIssue">
+        <view class="list_title">Issues</view>
+        <view class="list_content">
+          <view wx:if="{{ detail.open_issues_count > 0 }}" class="bage tabbar-bg-color">{{ detail.open_issues_count }}</view>
+          <van-icon name="arrow" />
+        </view>
+      </view>
     </view>
 
     <view wx:if="{{readme}}" class="list_view">
