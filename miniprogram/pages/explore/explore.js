@@ -44,7 +44,7 @@ Page({
           repos: []
         })
       }
-      const repos = this.data.repos.concat(res.result.repos)
+      const repos = this.data.page > 1 ? this.data.repos.concat(res.result.repos) : res.result.repos
       this.setData({
         langArr: res.result.langs,
         trending: res.result.trending,
@@ -53,6 +53,7 @@ Page({
         loading: false,
         btmloading: false
       })
+      wx.stopPullDownRefresh()
     }).catch(err => {
       this.setData({
         loading: false
@@ -62,6 +63,7 @@ Page({
         title: '云函数调用失败',
       })
       console.error('云函数[trending]调用失败：', err)
+      wx.stopPullDownRefresh()
     })
   },
   bindPickerChange: function(e) {
@@ -84,8 +86,7 @@ Page({
    */
   onPullDownRefresh: function () {
     this.setData({
-      page: 1,
-      repos: null
+      page: 1
     })
     this.getTrending()
   },

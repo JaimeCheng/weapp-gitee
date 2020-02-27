@@ -1,12 +1,19 @@
 page {
   background-color: #F6F8FA;
   padding-bottom: 30rpx;
+  padding-top: 44px;
 }
 .van-tabs__line {
   background-color: #d96459 !important;
 }
 .van-skeleton {
   margin-top: 40rpx;
+}
+.van-sticky {
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  z-index: 999;
 }
 .loading {
   margin: calc(50vh - 80rpx) auto;

@@ -2,6 +2,7 @@
   "navigationBarTitleText": "发现",
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",
+  "backgroundColor": "#F6F8FA",
   "usingComponents": {
     "van-tab": "../../vant/tab/index",
     "van-tabs": "../../vant/tabs/index",
