@@ -1,6 +1,7 @@
 // miniprogram/pages/repo/file.js
 const REPO = require('../../api/repo.js')
 const Base64 = require('../../utils/base64.js').Base64
+const img = ['png', 'jpg', 'jpeg', 'bmp', 'gif', 'webp', 'psd', 'svg', 'tiff']
 Page({
 
   /**
@@ -13,7 +14,9 @@ Page({
     name: '',
     content: {},
     loading: true,
-    empty: '空文件'
+    empty: '空文件',
+    type: '',
+    suffix: ''
   },
 
   /**
@@ -22,11 +25,25 @@ Page({
   onLoad: function (options) {
     if (options.query) {
       const query = JSON.parse(options.query)
+      var suffix = query.name.substr(query.name.lastIndexOf('.') + 1)
+      this.setData({
+        suffix: suffix
+      })
+      if (suffix === 'wxml') {
+        suffix = 'html'
+      }
+      if (suffix === 'wxss') {
+        suffix = 'css'
+      }
+      if (img.indexOf(suffix) > -1) {
+        suffix = 'img'
+      }
       this.setData({
         owner: query.owner,
         repo: query.repo,
         name: query.name,
-        sha: query.sha
+        sha: query.sha,
+        type: suffix
       })
       wx.setNavigationBarTitle({
         title: query.name
@@ -37,9 +54,16 @@ Page({
 
   fetchData: function (query) {
     REPO.getRepoBlob(query).then(res => {
+      var content = Base64.decode(res.content)
+      if (this.data.type !== 'md' && this.data.type !== 'img') {
+        content = '```' + this.data.type + '\n' + content + '\n```'
+      }
+      if (this.data.type === 'img') {
+        content = 'data:image/png;base64,' + res.content
+      }
       this.setData({
         currThis: this,
-        content: Base64.decode(res.content),
+        content: content,
         loading: false,
       })
     }).catch(err => {
@@ -47,6 +71,14 @@ Page({
       this.setData({
         loading: false
       })
+    })
+  },
+
+  toPreview: function (e) {
+    const img = e.currentTarget.dataset.img
+    wx.previewImage({
+      current: img, 
+      urls: [img]
     })
   }
 

@@ -1,1 +1,11 @@
 /* miniprogram/pages/repo/file.wxss */
+.imgwrap {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+.img {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
