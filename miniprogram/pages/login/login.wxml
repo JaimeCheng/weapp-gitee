@@ -1,7 +1,8 @@
 <!--pages/login/login.wxml-->
 <view class="login-bg logo-bg-color">
-  <!-- <view class="login-slogan bold">Gitee+ 码云小程序</view> -->
-  <image class="login-logo" src="../../assets/logo.png"></image>
+  <view class="login-slogan bold">Gitee+ 码云小程序</view>
+  <image class="login-logo" src="../../assets/logo.png" bindtap="toAbout"></image>
+  <!-- <text class="intro">为 gitee.com 提供简单的阅览功能</text> -->
 </view>
 
 <view class="login-box">

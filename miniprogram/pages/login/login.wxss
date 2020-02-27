@@ -5,6 +5,7 @@
   padding: 30rpx 0;
   margin-bottom: 40rpx;
   overflow: hidden;
+  text-align: center;
 }
 .login-slogan {
   color: white;
@@ -78,4 +79,11 @@
   margin: auto;
   padding: 0 6rpx 4rpx;
   border-bottom: 1rpx solid #daebe0;
+}
+.intro {
+  color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+  margin-bottom: 35rpx;
+  display: block;
 }
