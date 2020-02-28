@@ -1,15 +1,27 @@
 <!--miniprogram/staticPack/about/author.wxml-->
 
 <view class="wrap">
-  <view class="box-shadow box">
-    <view class="name">About Author</view>
-    <view class="page">
-      Gitee: 
-      <navigator class="alink" url="../../pages/user/home?login=jaimecheng" hover-class="none">@JaimeCheng</navigator>
+  <view class="logowrap center">
+    <view class="logo center logo-bg-color">
+      <image class="mylogo" src="../../assets/logo.png"></image>
     </view>
-    <view class="page" bindtap="copyIt">
-      Github: 
-      <view class="alink">@JaimeCheng</view>
+    <image class="gitee" src="../../assets/gitee.png" mode="widthFix"></image>
+  </view>
+  <view class="name center">Gitee+</view>
+  <view class="intro">为码云(gitee.com)用户提供简单的仓库浏览、检索等功能。</view>
+
+  <view class="menu-view">
+    <view class="menu-item" bindtap="feedback">
+      <view class="menu-left">反馈</view>
+      <view class="menu-right"><van-icon name="arrow" /></view>
+    </view>
+    <view class="menu-item" bindtap="toRepo">
+      <view class="menu-left">Gitee仓库</view>
+      <view class="menu-right alink">JaimeCheng/Gitee+</view>
+    </view>
+    <view class="menu-item" bindtap="copyIt">
+      <view class="menu-left">Github仓库</view>
+      <view class="menu-right alink">JaimeCheng/weapp-gitee</view>
     </view>
   </view>
 </view>

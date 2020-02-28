@@ -1,4 +1,6 @@
 {
-  "navigationBarTitleText": "关于",
-  "usingComponents": {}
+  "navigationBarTitleText": "关于Gitee+",
+  "usingComponents": {
+    "van-icon": "../../vant/icon/index"
+  }
 }

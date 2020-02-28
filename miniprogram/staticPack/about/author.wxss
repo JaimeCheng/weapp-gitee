@@ -1,29 +1,57 @@
 /* miniprogram/staticPack/about/author.wxss */
 page {
-  background-color: #F6F8FA;
   padding-bottom: 30rpx;
+  background: #fff;
 }
 .wrap {
-  width: 80vw;
-  margin: auto;
-  padding-top: 200rpx;
+  padding-top: 120rpx;
+  font-weight: 300;
 }
-.box {
+.logo {
+  width: fit-content;
+  padding: 22rpx 20rpx 10rpx;
+  border-radius: 25rpx;  
   margin: auto;
-  padding: 110rpx 100rpx 70rpx ;
+  display: inline-block;
+}
+.mylogo {
+  width: 80rpx;
+  height: 80rpx;
+}
+.gitee {
+  width: 120rpx;
+  height: 120rpx;
+  margin-left: 40rpx;
+  vertical-align: -15rpx;
 }
 .name {
-  font-size: 34rpx;
-  color: #000;
-  text-align: center;
-  margin-bottom: 30rpx;
+  font-size: 38rpx;
+  font-weight: 600;
+  margin: 35rpx 0 30rpx;
 }
-.page {
+.intro {
+  font-size: 28rpx;
+  color: #666;
+  padding: 0 40rpx;
+  line-height: 1.5;
+}
+.menu-view {
+  padding-top: 60rpx;
+}
+.menu-item {
+  font-size: 30rpx;
   display: flex;
+  padding: 0 6rpx;
+  margin: 0 40rpx;
+  height: 90rpx;
   align-items: center;
-  width: 90%;
-  margin: 40rpx auto;
+  justify-content: space-between;
+  border-top: 1rpx solid rgb(216, 218, 216);
 }
-.alink {
-  margin-left: 30rpx;
+.menu-item:last-of-type {
+  border-bottom: 1rpx solid rgb(216, 218, 216);
+}
+.menu-right .van-icon {
+  color: #888;
+  height: 30rpx;
 }
