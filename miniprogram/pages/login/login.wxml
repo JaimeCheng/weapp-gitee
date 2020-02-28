@@ -18,6 +18,7 @@
       </view>
       <button class="mybtn-primary login-btn" hover-class="mybtn-hover" disabled="{{ loading }}" loading="{{ loading }}" formType="submit">登录</button>
       <text class="sub-text">邮箱密码仅用于码云API权限验证，不会被上传存档，请放心使用；当然，我们更建议您使用Token进行登录。</text>
+      <navigator class="small" url="../../staticPack/about/author">关于 Gitee+</navigator>
     </block>
     <block wx:if="{{ currWay === 0 }}">
       <view class="login-input">
@@ -25,7 +26,8 @@
         <input name="password" placeholder-class="place-holder" placeholder="请输入私人令牌" type="password"></input>
       </view>
       <button class="mybtn-primary login-btn" hover-class="mybtn-hover" disabled="{{ loading }}" loading="{{ loading }}" formType="submit">登录</button>
-      <navigator url="../../staticPack/about/token">如何获取私人令牌(Token)？</navigator>
+      <navigator class="small" url="../../staticPack/about/token">如何获取私人令牌(Token)？</navigator>
+      <navigator class="small" url="../../staticPack/about/author">关于 Gitee+</navigator>
     </block>
   </form>
 

@@ -75,6 +75,7 @@
   z-index: -1;
 }
 .login-other {
+  font-size: 28rpx;
   width: fit-content;
   margin: auto;
   padding: 0 6rpx 4rpx;
@@ -86,4 +87,7 @@
   font-size: 28rpx;
   margin-bottom: 35rpx;
   display: block;
+}
+.small {
+  font-size: 26rpx;
 }
