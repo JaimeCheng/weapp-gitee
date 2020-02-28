@@ -54,7 +54,7 @@ page {
 .bage {
   color: #fff;
   border-radius: 20rpx;
-  padding: 2rpx 5rpx;
+  padding: 4rpx 12rpx;
   width: 40rpx;
   height: 30rpx;
   line-height: 30rpx;
