@@ -1,7 +1,7 @@
 // miniprogram/pages/repo/file.js
 const REPO = require('../../api/repo.js')
 const Base64 = require('../../utils/base64.js').Base64
-const img = ['png', 'jpg', 'jpeg', 'bmp', 'gif', 'webp', 'psd', 'svg', 'tiff']
+const img = ['png', 'jpg', 'jpeg', 'bmp', 'gif', 'webp', 'psd', 'svg', 'tiff', 'ico']
 Page({
 
   /**
