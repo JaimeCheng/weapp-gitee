@@ -106,6 +106,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: this.data.detail.name,
+      path: `/pages/repo/home?path=${this.data.owner}/${this.data.repo}`
+    }
   }
 })

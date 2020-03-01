@@ -50,6 +50,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: this.data.userInfo.name,
+      path: `/pages/user/home?login=${this.userInfo.login}`
+    }
   }
 })
