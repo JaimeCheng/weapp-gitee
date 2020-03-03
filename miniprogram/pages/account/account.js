@@ -12,7 +12,8 @@ create(store, {
   data: {
     userInfo: null,
     empty: '--',
-    repos: '-'
+    repos: '-',
+    hasLogin: false
   },
 
   /**
@@ -22,21 +23,28 @@ create(store, {
     this.update()
     wx.setStorageSync('lastTab', '../account/account')
     wx.setStorageSync('lastPage', '')
-    if (!this.store.data.token) {
-      wx.redirectTo({
-        url: '../login/login',
-      })
-    } else {
-      this.fetchInfo()
-      // this.fetchRepos()
-    }
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (!this.store.data.token) {
+      // wx.redirectTo({
+      //   url: '../login/login',
+      // })
+      this.setData({
+        hasLogin: false,
+        userInfo: {
+          avatar_url: '../../assets/def_ava.png'
+        }
+      })
+    } else {
+      this.fetchInfo()
+      this.setData({
+        hasLogin: true
+      })
+    }
   },
 
   fetchInfo: function () {
@@ -107,6 +115,11 @@ create(store, {
         }
       }
     })
-  }
+  },
 
+  login: function () {
+    wx.navigateTo({
+      url: '../login/login',
+    })
+  }
 })

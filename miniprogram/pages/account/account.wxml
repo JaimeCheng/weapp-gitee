@@ -2,11 +2,11 @@
 <view class="login-bg logo-bg-color">
   <image class="user-avatar" src="{{ userInfo.avatar_url }}"></image>
   <view class="user-name">{{ userInfo.name }}</view>
-  <view class="user-login">@{{ userInfo.login }}</view>
+  <view wx:if="{{ hasLogin }}" class="user-login">@{{ userInfo.login }}</view>
 </view>
 
 <view class="wrap">
-  <view class="info_view">
+  <view wx:if="{{ hasLogin }}" class="info_view">
     <view class="item_view">
       <navigator url="../repo/list?type=myall" hover-class="none">
         <view class="item">
@@ -68,8 +68,12 @@
       <view class="list_title">反馈</view>
       <view class="list_content"><van-icon name="arrow" /></view>
     </view>
-    <view class="list" bindtap="logout">
+    <view wx:if="{{ hasLogin }}" class="list" bindtap="logout">
       <view class="list_title">退出</view>
+      <view class="list_content"><van-icon name="arrow" /></view>
+    </view>
+    <view wx:else class="list" bindtap="login">
+      <view class="list_title">登录</view>
       <view class="list_content"><van-icon name="arrow" /></view>
     </view>
   </view>
