@@ -25,7 +25,7 @@ Page({
   onLoad: function (options) {
     if (options.query) {
       const query = JSON.parse(options.query)
-      var suffix = query.name.substr(query.name.lastIndexOf('.') + 1)
+      var suffix = query.name.substr(query.name.lastIndexOf('.') + 1).toLowerCase()
       this.setData({
         suffix: suffix
       })
