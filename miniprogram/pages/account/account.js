@@ -3,6 +3,7 @@ import store from '../../store/store'
 import create from '../../store/create'
 const USER = require('../../api/user.js')
 const REPO = require('../../api/repo.js')
+let interstitialAd = null
 
 create(store, {
 
@@ -23,6 +24,19 @@ create(store, {
     this.update()
     wx.setStorageSync('lastTab', '../account/account')
     wx.setStorageSync('lastPage', '')
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-b37661a7e73674dd'
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   /**
@@ -90,6 +104,9 @@ create(store, {
       appId: 'wx8abaf00ee8c3202e',
       extraData: {
         id: '125954'
+      },
+      fail: err => {
+        console.log(err)
       }
     })
   },
