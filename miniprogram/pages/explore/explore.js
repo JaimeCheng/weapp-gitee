@@ -8,6 +8,7 @@ Page({
     active: 0,
     index: 0,
     lang: '',
+    currLang: '全部语言',
     page: 1,
     total_pages: 100,
     langArr: [],
@@ -68,11 +69,13 @@ Page({
   },
   bindPickerChange: function(e) {
     this.setData({
-      index: e.detail.value,
+      index: 0,
+      // index: e.detail.value,
       lang: this.data.langArr[e.detail.value].query,
       page: 1,
       repos: [],
-      loading: true
+      loading: true,
+      currLang: this.data.langArr[e.detail.value].val
     })
     this.getTrending()
   },

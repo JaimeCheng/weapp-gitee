@@ -40,9 +40,15 @@
 
 <image class="btm-loading" hidden="{{ !btmloading }}" src="../../assets/loading.gif"></image>
 
-<picker bindchange="bindPickerChange" value="{{index}}" range="{{langArr}}" range-key="val">
+<!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{langArr}}" range-key="val">
   <view class="picker">
     <view wx:if="{{langArr.length > 0}}" class="mybtn-primary fixed-btn">选择语言: {{langArr[index].val}}</view>
+  </view>
+</picker> -->
+
+<picker bindchange="bindPickerChange" value="{{index}}" range="{{langArr}}" range-key="val">
+  <view class="picker">
+    <view wx:if="{{langArr.length > 0}}" class="mybtn-primary fixed-btn">选择语言: {{currLang}}</view>
   </view>
 </picker>
 

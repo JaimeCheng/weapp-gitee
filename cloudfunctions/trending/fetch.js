@@ -6,13 +6,17 @@ const GITEE_URL = 'https://gitee.com';
 async function fetchData({ lang = '', page = 1 } = {}) {
   const data = await fetch(`${GITEE_URL}/explore/all?lang=${lang}&page=${page}`);
   const $ = cheerio.load(await data.text());
-  const langs = $('.explore-languagues__container .menu a').get().map(a => {
+
+  var langs = $('.explore-project__selection-container .actions .dropdown:nth-of-type(2) .menu a').get().map(a => {
     const queryArr = $(a).attr('href').split('=');
     return {
       query: queryArr.length === 2 ? queryArr[1] : '',
-      val: $(a).find('span:first-child').text()
+      val: $(a).text()
     };
   })
+  // if (!lang && langs[0].val !== '全部语言') {
+  //   langs.unshift({query: '', val: '全部语言'})
+  // }
 
   const trending = {
     daily: [],
