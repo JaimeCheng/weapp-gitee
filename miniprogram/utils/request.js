@@ -26,7 +26,7 @@ const request = (options) => {
       header: options.method === 'POST' ? configPOST : config,
       success(res) {
         // console.log(res)
-        if (res.statusCode === 200) {
+        if (res.statusCode === 200 || res.statusCode === 204) {
           resolve(res.data)
         } else {
           console.log(res.data)
@@ -77,6 +77,7 @@ const request = (options) => {
               })
             }
           } else {
+            console.log(options)
             wx.showToast({
               title: res.data.error_description || res.data.message,
               icon: 'none',

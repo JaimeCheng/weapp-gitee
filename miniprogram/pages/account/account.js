@@ -44,9 +44,6 @@ create(store, {
    */
   onShow: function () {
     if (!this.store.data.token) {
-      // wx.redirectTo({
-      //   url: '../login/login',
-      // })
       this.setData({
         hasLogin: false,
         userInfo: {
