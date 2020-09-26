@@ -97,7 +97,7 @@ Page({
         owner_url: res.owner.html_url,
         repo_title: res.human_name,
         repo_path: res.full_name,
-        repo_url: res.homepage,
+        repo_url: res.html_url,
         repo_lang: res.language,
         repo_desc: res.description,
         watch: res.watchers_count,
