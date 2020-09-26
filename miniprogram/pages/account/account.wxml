@@ -1,6 +1,7 @@
 <!--pages/account/account.wxml-->
 <view class="login-bg logo-bg-color">
-  <image class="user-avatar" src="{{ userInfo.avatar_url }}"></image>
+  <image wx:if="!hasLogin" class="user-avatar" src="{{ userInfo.avatar_url }}" bindtap="login"></image>
+  <image wx:else class="user-avatar" src="{{ userInfo.avatar_url }}"></image>
   <view class="user-name">{{ userInfo.name }}</view>
   <view wx:if="{{ hasLogin }}" class="user-login">@{{ userInfo.login }}</view>
 </view>
