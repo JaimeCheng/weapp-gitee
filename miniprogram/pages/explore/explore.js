@@ -1,4 +1,6 @@
 // pages/explore/explore.js
+const REPO = require('../../api/repo.js')
+
 Page({
 
   /**
@@ -14,7 +16,8 @@ Page({
     langArr: [],
     repos: null,
     loading: true,
-    btmloading: false
+    btmloading: false,
+    myrepo: {}
   },
 
   /**
@@ -22,6 +25,7 @@ Page({
    */
   onLoad: function (options) {
     this.getTrending()
+    this.getSelf()
   },
 
   /**
@@ -82,6 +86,28 @@ Page({
 
   tabChange: function(e) {
     this.setData({ active: e.detail.index })
+  },
+
+  getSelf: function () {
+    const query = { owner: 'JaimeCheng', repo: 'weapp-gitee' }
+    REPO.getRepoInfo(query).then(res => {
+      this.setData({
+       myrepo: {
+        avatar_url: res.owner.avatar_url,
+        owner_url: res.owner.html_url,
+        repo_title: res.human_name,
+        repo_path: res.full_name,
+        repo_url: res.homepage,
+        repo_lang: res.language,
+        repo_desc: res.description,
+        watch: res.watchers_count,
+        star: res.stargazers_count,
+        fork: res.forks_count
+       }
+      })
+    }).catch(err => {
+      console.log(err)
+    })
   },
 
   /**
