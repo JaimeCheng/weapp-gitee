@@ -77,7 +77,6 @@ const request = (options) => {
               })
             }
           } else {
-            console.log(options)
             wx.showToast({
               title: res.data.error_description || res.data.message,
               icon: 'none',
