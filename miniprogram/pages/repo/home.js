@@ -1,5 +1,6 @@
 // miniprogram/pages/repo/home.js
 const REPO = require('../../api/repo.js')
+const USER = require('../../api/user.js')
 const Base64 = require('../../utils/base64.js').Base64
 
 Page({
@@ -100,6 +101,40 @@ Page({
     wx.navigateTo({
       url: `../repo/issue?query=${JSON.stringify(query)}`
     })
+  },
+
+  handleStar: function () {
+    const query = {
+      owner: this.data.owner,
+      repo: this.data.repo
+    }
+    if (this.data.detail.stared) {
+      USER.cancelStarRepo(query).then(res => {
+        wx.showToast({
+          title: '取消star成功',
+          icon: 'none'
+        })
+        this.setData({
+          ['detail.stared']: false,
+          ['detail.stargazers_count']: this.data.detail.stargazers_count - 1
+        })
+      }).catch(err => {
+        console.log(err)
+      })
+    } else {
+      USER.starRepo(query).then(res => {
+        wx.showToast({
+          title: 'star仓库成功',
+          icon: 'success'
+        })
+        this.setData({
+          ['detail.stared']: true,
+          ['detail.stargazers_count']: this.data.detail.stargazers_count + 1
+        })
+      }).catch(err => {
+        console.log(err)
+      })
+    }
   },
 
   /**

@@ -11,8 +11,9 @@
         <image src="../../assets/icon/watch.png"></image>
         <text>{{ detail.watchers_count }}</text>
       </view> 
-      <view class="item center">
-        <image src="../../assets/icon/star.png"></image>
+      <view class="item center" bindtap="handleStar">
+        <image wx:if="{{ detail.stared }}" src="../../assets/icon/star_o.png"></image>
+        <image wx:else src="../../assets/icon/star.png"></image>
         <text>{{ detail.stargazers_count }}</text>
       </view> 
       <view class="item center">
