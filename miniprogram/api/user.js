@@ -48,11 +48,19 @@ const getFollowing = params => {
   })
 }
 
-const demo = path => {
+const starRepo = params => {
   return request({
-    url: `/v5/repos${path}/readme`,
-    method: 'GET',
-    data: {}
+    url: `/v5/user/starred/${params.owner}/${params.repo}`,
+    method: 'PUT',
+    data: params
+  })
+}
+
+const cancelStarRepo = params => {
+  return request({
+    url: `/v5/user/starred/${params.owner}/${params.repo}`,
+    method: 'DELETE',
+    data: params
   })
 }
 
@@ -63,5 +71,6 @@ module.exports = {
   getFans,
   getFollowers,
   getFollowing,
-  demo
+  starRepo,
+  cancelStarRepo
 }
