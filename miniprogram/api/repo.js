@@ -56,6 +56,14 @@ const getRepoBlob = params => {
   })
 }
 
+const getRepoBranches = params => {
+  return request({
+    url: `/v5/repos/${params.owner}/${params.repo}/branches`,
+    method: 'GET',
+    data: params
+  })
+}
+
 const getRepoIssues = params => {
   return request({
     url: `/v5/repos/${params.owner}/${params.repo}/issues`,
@@ -88,6 +96,7 @@ module.exports = {
   getRepoReadme,
   getRepoTree,
   getRepoBlob,
+  getRepoBranches,
   getRepoIssues,
   getIssue,
   getIssueComments
