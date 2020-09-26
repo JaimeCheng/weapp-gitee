@@ -34,7 +34,15 @@
       </view>
       <view class="list">
         <view class="list_title">分支</view>
-        <view class="list_content">{{ detail.default_branch }}</view>
+          <picker bindchange="switchBranch" value="{{branchIndex}}" range="{{branches}}" range-key="name">
+            <view class="picker">
+              <view class="list_content">
+                <text>{{ branches[branchIndex].name }}</text>
+                <van-icon name="arrow" />
+              </view>
+            </view>
+          </picker>
+        <!-- <view class="list_content">{{ detail.default_branch }}</view> -->
       </view>
       <view wx:if="{{ detail.language }}" class="list">
         <view class="list_title">语言</view>

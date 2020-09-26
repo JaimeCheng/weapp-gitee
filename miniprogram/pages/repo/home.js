@@ -13,6 +13,8 @@ Page({
     repo: '',
     detail: {},
     repourl: '',
+    branches: [],
+    branchIndex: 0,
     readme: '',
     loading: true,
     no: '暂无描述',
@@ -44,9 +46,9 @@ Page({
     REPO.getRepoInfo(query).then(res => {
       this.setData({
         detail: res,
-        loading: false,
         repourl: `${res.namespace.html_url}/${res.path}`
       })
+      this.fetchBranches(query)
     }).catch(err => {
       console.log(err)
       this.setData({
@@ -64,7 +66,38 @@ Page({
       })
     }).catch(err => {
       console.log(err)
+      this.setData({
+        readme: Base64.decode(''),
+      })
     })
+  },
+
+  fetchBranches (query) {
+    REPO.getRepoBranches(query).then(res => {
+      const index = res.findIndex(el => el.name === this.data.detail.default_branch)
+      this.setData({
+        branches: res,
+        branchIndex: index,
+        loading: false
+      })
+    }).catch(err => {
+      console.log(err)
+      this.setData({
+        loading: false
+      })
+    })
+  },
+
+  switchBranch (e) {
+    this.setData({
+      branchIndex: e.detail.value
+    })
+    const query = {
+      owner: this.data.owner,
+      repo: this.data.repo,
+      ref: this.data.branches[this.data.branchIndex].name
+    }
+    this.fetchReadme(query)
   },
 
   copyIt: function (e) {
@@ -86,7 +119,7 @@ Page({
       owner: this.data.owner,
       repo: this.data.repo,
       name: this.data.detail.human_name,
-      sha: this.data.detail.default_branch
+      sha: this.data.branches[this.data.branchIndex].name
     }
     wx.navigateTo({
       url: `../repo/dir?query=${JSON.stringify(query)}`
