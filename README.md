@@ -16,9 +16,9 @@ markdown解析采用的是 [towxml](https://github.com/sbfkcel/towxml)，感谢�
 - svg等文件的解析；
 
 #### 示例
-![](https://img.oczm.top/15828796578067.png)
-![](https://img.oczm.top/15828796967977.png)
+![](./img/1.png)
+![](./img/2.png)
 
 #### 体验
-![](https://img.oczm.top/gh_c79942b725e9_258.jpg)
+![](./img/qr.jpeg)
 
