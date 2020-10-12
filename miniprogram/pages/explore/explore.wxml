@@ -3,7 +3,6 @@
   <van-tab title="最新推荐">
     <van-skeleton title row="2" loading="{{ loading }}">
       <view class="wrap">
-        <repo-item wx:if="{{!lang || currLang === '微信'}}" repo-data="{{ myrepo }}" />
         <repo-item wx:for="{{repos}}" wx:key="index" repo-data="{{ item }}" />
         <view wx:if="{{ repos.length === 0 }}" class="empty center">
           <image src="../../assets/logo_o.png" mode="widthFix"></image>
