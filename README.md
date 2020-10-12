@@ -13,7 +13,7 @@ markdown解析采用的是 [towxml](https://github.com/sbfkcel/towxml)，感谢�
 **此源码仅供交流学习，严禁以任何形式独立发布或用于商业用途。**
 
 #### 待解决
-- svg等文件的解析；
+- [x] ~~svg等文件的解析~~；
 
 #### 示例
 ![](./img/1.png)
