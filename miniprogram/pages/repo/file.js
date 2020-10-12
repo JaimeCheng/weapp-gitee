@@ -1,7 +1,7 @@
 // miniprogram/pages/repo/file.js
 const REPO = require('../../api/repo.js')
 const Base64 = require('../../utils/base64.js').Base64
-const img = ['png', 'jpg', 'jpeg', 'bmp', 'gif', 'webp', 'psd', 'svg', 'tiff', 'ico']
+const img = ['png', 'jpg', 'jpeg', 'bmp', 'gif', 'webp', 'psd', 'tiff', 'ico']
 Page({
 
   /**
@@ -61,6 +61,9 @@ Page({
       if (this.data.type === 'img') {
         content = 'data:image/png;base64,' + res.content
       }
+      if (this.data.type === 'svg') {
+        content = 'data:image/svg+xml;base64,' + res.content
+      }
       this.setData({
         currThis: this,
         content: content,
@@ -75,11 +78,13 @@ Page({
   },
 
   toPreview: function (e) {
-    const img = e.currentTarget.dataset.img
-    wx.previewImage({
-      current: img, 
-      urls: [img]
-    })
+    if (this.data.type === 'img') {
+      const img = e.currentTarget.dataset.img
+      wx.previewImage({
+        current: img, 
+        urls: [img]
+      })
+    }
   }
 
 })

@@ -1,6 +1,6 @@
 <!--miniprogram/pages/repo/file.wxml-->
-<view wx:if="{{ !loading }}" class="{{ type === 'md' ? 'wrap' : ''}} {{ type === 'img' ? 'imgwrap' : '' }}">
-  <towxml wx:if="{{ type !== 'img' }}" loading="{{loading}}" curr-this="{{ currThis }}" md="{{ content || empty }}"></towxml> 
+<view wx:if="{{ !loading }}" class="{{ type === 'md' ? 'wrap' : ''}} {{ type === 'img' || type === 'svg' ? 'imgwrap' : '' }}">
+  <towxml wx:if="{{ type !== 'img' && type !== 'svg' }}" loading="{{loading}}" curr-this="{{ currThis }}" md="{{ content || empty }}"></towxml> 
   <image wx:else src="{{ content }}" class="img" mode="widthFix" bindtap="toPreview" data-img="{{ content }}"></image>
 </view>
 <image wx:else class="loading" src="../../assets/loading.gif"></image>
